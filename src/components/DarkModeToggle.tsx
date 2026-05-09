@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 export function useDarkMode() {
   const [dark, setDark] = useState(() => {
     if (typeof window === "undefined") return false;
-    return localStorage.getItem("halo_dark") === "true" ||
-      (!localStorage.getItem("halo_dark") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    // Default to light mode unless user explicitly set dark
+    return localStorage.getItem("halo_dark") === "true";
   });
 
   useEffect(() => {

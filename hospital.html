@@ -1,0 +1,2577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HALO City Hospital — Advanced Healthcare, Compassionate Care</title>
+  <meta name="description" content="HALO City Hospital in Islamabad offers specialist care across 15 departments. Book appointments instantly with our AI-powered booking assistant." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* =============================================
+       PART 1 — GLOBAL DESIGN SYSTEM
+    ============================================= */
+    :root {
+      --primary:        #0A7EA4;
+      --primary-dark:   #075F7C;
+      --accent:         #00C896;
+      --bg-page:        #F0F5F9;
+      --surface:        #FFFFFF;
+      --border:         #DDE5ED;
+      --border-focus:   #0A7EA4;
+      --text-primary:   #1A2B3C;
+      --text-secondary: #5A7184;
+      --text-disabled:  #A0AEBA;
+      --success:        #10B981;
+      --success-bg:     #ECFDF5;
+      --warning:        #F59E0B;
+      --warning-bg:     #FFFBEB;
+      --error:          #EF4444;
+      --error-bg:       #FEF2F2;
+      --info:           #3B82F6;
+      --info-bg:        #EFF6FF;
+      --dark-bg:        #1A2B3C;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-primary);
+      background: var(--bg-page);
+      line-height: 1.6;
+    }
+
+    /* Typography */
+    h1 { font-size: 28px; font-weight: 700; }
+    h2 { font-size: 22px; font-weight: 700; }
+    h3 { font-size: 18px; font-weight: 700; }
+    .body-lg  { font-size: 16px; }
+    .body-md  { font-size: 14px; }
+    .caption  { font-size: 12px; }
+    .label    { font-size: 12px; font-weight: 600; }
+
+    /* Cards */
+    .card {
+      background: var(--surface);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(10,126,164,0.08);
+      transition: all 0.2s ease;
+    }
+    .card:hover {
+      box-shadow: 0 4px 16px rgba(10,126,164,0.14);
+      border-color: var(--primary);
+    }
+
+    /* Primary Button */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: scale(1.01);
+    }
+
+    /* Outline Button */
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--primary);
+      border: 1.5px solid var(--primary);
+      border-radius: 8px;
+      padding: 11px 24px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn-outline:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* Outline White (for hero) */
+    .btn-outline-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.7);
+      border-radius: 8px;
+      padding: 11px 24px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn-outline-white:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: #fff;
+    }
+
+    /* Input Fields */
+    input, textarea {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--text-primary);
+      background: var(--surface);
+      outline: none;
+      transition: all 0.2s ease;
+    }
+    input:focus, textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(10,126,164,0.12);
+    }
+
+    /* Section spacing */
+    section { padding: 72px 0; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+    .section-sub {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 560px;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .section-header .section-sub {
+      margin: 0 auto;
+    }
+
+    /* =============================================
+       PART 7 — DEMO BANNER (top strip)
+    ============================================= */
+    #demo-banner {
+      background: var(--dark-bg);
+      padding: 8px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      position: relative;
+      z-index: 1000;
+    }
+    #demo-banner span {
+      color: rgba(255,255,255,0.8);
+      font-size: 13px;
+    }
+    #demo-banner .banner-badge {
+      background: rgba(10,126,164,0.2);
+      border: 1px solid var(--primary);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+    #demo-banner .back-btn {
+      position: absolute;
+      right: 24px;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s ease;
+    }
+    #demo-banner .back-btn:hover {
+      text-decoration: underline;
+    }
+
+    /* =============================================
+       PART 2.1 — TOP NAVIGATION BAR
+    ============================================= */
+    #navbar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 8px rgba(10,126,164,0.07);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    /* Logo */
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--primary);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-logo-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: #fff;
+    }
+    .nav-logo-text {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+    .nav-logo-sub {
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--text-secondary);
+    }
+
+    /* Nav links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--primary);
+      background: rgba(10,126,164,0.06);
+    }
+
+    /* Nav right */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .emergency-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #FEF2F2;
+      border: 1px solid #FECACA;
+      color: var(--error);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .emergency-badge span.dot {
+      width: 6px;
+      height: 6px;
+      background: var(--error);
+      border-radius: 50%;
+      animation: blink 1.4s ease infinite;
+    }
+    @keyframes blink {
+      0%,100%{ opacity:1 } 50%{ opacity:0.3 }
+    }
+
+    /* Mobile hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: all 0.2s ease;
+    }
+
+    /* =============================================
+       PART 2.2 — HERO SECTION
+    ============================================= */
+    #hero {
+      background: linear-gradient(135deg, #0A7EA4 0%, #075F7C 100%);
+      padding: 90px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: -120px; left: -60px;
+      width: 500px; height: 500px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 50%;
+    }
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-left { flex: 0 0 58%; }
+    .hero-right { flex: 0 0 42%; }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.9);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+    .hero-eyebrow .dot {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .hero-title {
+      font-size: 46px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .hero-tagline {
+      font-size: 20px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 12px;
+    }
+    .hero-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-hero-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: var(--primary);
+      border: none;
+      border-radius: 8px;
+      padding: 13px 28px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    }
+    .btn-hero-primary:hover {
+      background: #F0F5F9;
+      transform: scale(1.02);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.16);
+    }
+
+    /* Hero Stats Card */
+    .hero-stats-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+    }
+    .hero-stats-card-header {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px 16px;
+      background: var(--bg-page);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: all 0.2s ease;
+    }
+    .stat-item:hover {
+      border-color: var(--primary);
+      background: rgba(10,126,164,0.04);
+    }
+    .stat-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .stat-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* =============================================
+       PART 2.3 — AI BOOKING HIGHLIGHT
+    ============================================= */
+    #ai-booking {
+      background: var(--surface);
+      padding: 80px 0;
+    }
+    .ai-booking-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .ai-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(10,126,164,0.06);
+    }
+    .ai-card:hover {
+      box-shadow: 0 8px 28px rgba(10,126,164,0.14);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+    .ai-card-icon {
+      width: 56px; height: 56px;
+      background: rgba(10,126,164,0.08);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      color: var(--primary);
+    }
+    .ai-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .ai-card p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .phone-display {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: 0.5px;
+      margin: 4px 0;
+    }
+    .phone-instructions {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .phone-instructions .urdu {
+      font-size: 13px;
+      color: var(--text-secondary);
+      direction: rtl;
+      display: block;
+      margin-top: 4px;
+    }
+    .avail-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--success-bg);
+      color: var(--success);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      width: fit-content;
+    }
+    .avail-badge .dot {
+      width: 6px; height: 6px;
+      background: var(--success);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100%{ transform: scale(1); opacity:1 }
+      50%{ transform: scale(1.4); opacity:0.7 }
+    }
+
+    /* Phone click-to-copy */
+    .phone-wrap {
+      position: relative;
+      display: inline-block;
+    }
+    .phone-copy-tooltip {
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--dark-bg);
+      color: #fff;
+      font-size: 12px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .phone-copy-tooltip.show { opacity: 1; }
+    .phone-copy-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%; left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: var(--dark-bg);
+    }
+
+    /* =============================================
+       PART 2.4 — SERVICES SECTION
+    ============================================= */
+    #services {
+      background: var(--bg-page);
+      padding: 80px 0;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .service-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 4px rgba(10,126,164,0.06);
+      cursor: pointer;
+    }
+    .service-card:hover {
+      box-shadow: 0 8px 24px rgba(10,126,164,0.14);
+      border-color: var(--primary);
+      transform: translateY(-4px);
+    }
+    .service-icon {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+    }
+    .service-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .service-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .service-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: auto;
+      text-decoration: none;
+    }
+    .service-link i { font-size: 11px; }
+
+    /* =============================================
+       PART 2.5 — DOCTORS SECTION
+    ============================================= */
+    #doctors {
+      background: var(--surface);
+      padding: 80px 0;
+    }
+    .doctors-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .doctor-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 28px 20px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 4px rgba(10,126,164,0.06);
+    }
+    .doctor-card:hover {
+      box-shadow: 0 8px 24px rgba(10,126,164,0.14);
+      border-color: var(--primary);
+      transform: translateY(-4px);
+    }
+    .doctor-avatar {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      font-weight: 700;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(10,126,164,0.3);
+      position: relative;
+    }
+    .doctor-avatar::after {
+      content: '';
+      position: absolute;
+      bottom: 2px; right: 2px;
+      width: 14px; height: 14px;
+      background: var(--success);
+      border: 2px solid #fff;
+      border-radius: 50%;
+    }
+    .doctor-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .doctor-specialty {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    .avail-today {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--success-bg);
+      color: var(--success);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .avail-today .dot {
+      width: 5px; height: 5px;
+      background: var(--success);
+      border-radius: 50%;
+    }
+    .doctor-card .btn-primary {
+      width: 100%;
+      justify-content: center;
+      padding: 9px 16px;
+      font-size: 13px;
+    }
+    .doctor-exp {
+      font-size: 12px;
+      color: var(--text-disabled);
+    }
+
+    /* =============================================
+       PART 2.6 — FOOTER
+    ============================================= */
+    #footer {
+      background: var(--dark-bg);
+      padding: 60px 0 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px 48px;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .footer-logo-icon {
+      width: 36px; height: 36px;
+      background: var(--primary);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .footer-logo-text {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .footer-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 8px;
+    }
+    .footer-contact-item i {
+      color: var(--primary);
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+    .footer-col-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-links a:hover { color: var(--primary); }
+
+    .footer-halo {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .halo-power-badge {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .halo-power-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .halo-logo-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(10,126,164,0.15);
+      border: 1px solid rgba(10,126,164,0.3);
+      border-radius: 10px;
+      padding: 10px 16px;
+    }
+    .halo-logo-box .halo-letter {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .halo-logo-box span {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+    }
+    .footer-halo-desc {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.6;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 18px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .footer-bottom p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+    }
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-bottom-links a {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+    }
+    .footer-bottom-links a:hover { color: var(--primary); }
+
+    /* =============================================
+       RESPONSIVE STYLES
+    ============================================= */
+    @media (max-width: 1024px) {
+      .doctors-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-right .btn-primary { display: none; }
+      .nav-hamburger { display: flex; }
+      .hero-inner { flex-direction: column; }
+      .hero-left, .hero-right { flex: 0 0 100%; }
+      .hero-title { font-size: 32px; }
+      .ai-booking-cards { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .doctors-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      #demo-banner .back-btn { position: static; }
+      #demo-banner { flex-wrap: wrap; justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .doctors-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: 28px; }
+      .section-title { font-size: 24px; }
+    }
+
+    /* =============================================
+       PART 3 — FLOATING WIDGET BUTTON
+    ============================================= */
+    #widget-fab-wrap {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 1200;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .fab-label {
+      background: #fff;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      box-shadow: 0 2px 12px rgba(10,126,164,0.18);
+      white-space: nowrap;
+      animation: label-float 3s ease infinite;
+      pointer-events: none;
+    }
+    @keyframes label-float {
+      0%,100%{ transform: translateY(0); }
+      50%{ transform: translateY(-3px); }
+    }
+    .fab-btn {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: none;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-size: 26px;
+      box-shadow: 0 4px 20px rgba(10,126,164,0.4);
+      transition: all 0.2s ease;
+      position: relative;
+      z-index: 2;
+    }
+    .fab-btn:hover { background: var(--primary-dark); transform: scale(1.08); }
+    .fab-btn.open { background: var(--primary-dark); }
+    /* Pulse ring */
+    .fab-btn::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 2px solid rgba(10,126,164,0.3);
+      animation: fab-pulse 2s ease infinite;
+    }
+    @keyframes fab-pulse {
+      0%{ transform: scale(1); opacity: 0.8; }
+      70%{ transform: scale(1.35); opacity: 0; }
+      100%{ transform: scale(1.35); opacity: 0; }
+    }
+
+    /* =============================================
+       PART 5 — CHAT WIDGET PANEL
+    ============================================= */
+    #chat-widget {
+      position: fixed;
+      bottom: 0; right: 24px;
+      width: 380px;
+      height: 580px;
+      background: #fff;
+      border-radius: 16px 16px 0 0;
+      box-shadow: 0 -4px 32px rgba(10,126,164,0.18);
+      z-index: 1199;
+      display: flex;
+      flex-direction: column;
+      transform: translateY(100%);
+      opacity: 0;
+      transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+      overflow: hidden;
+    }
+    #chat-widget.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #chat-widget:not(.open) {
+      pointer-events: none;
+    }
+    @media (max-width: 480px) {
+      #chat-widget {
+        right: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        bottom: 0;
+      }
+      #widget-fab-wrap { bottom: 16px; right: 16px; }
+    }
+
+    /* Widget Header */
+    .w-header {
+      background: rgba(10, 126, 164, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 16px 16px 0 0;
+      padding: 0 14px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .w-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 700; color: #fff;
+      flex-shrink: 0;
+    }
+    .w-header-info { flex: 1; min-width: 0; }
+    .w-header-name { font-size: 13px; font-weight: 600; color: #fff; line-height: 1.3; }
+    .w-header-status { font-size: 11px; color: rgba(255,255,255,0.8); display: flex; align-items: center; gap: 5px; }
+    .w-online-dot { width: 6px; height: 6px; background: #00C896; border-radius: 50%; }
+    .w-header-right { display: flex; align-items: center; gap: 6px; }
+    .w-lang-pill {
+      background: rgba(255,255,255,0.2);
+      color: #fff; font-size: 11px; font-weight: 600;
+      padding: 3px 10px; border-radius: 20px;
+      cursor: pointer; border: none;
+      transition: background 0.2s ease;
+      font-family: 'Inter', sans-serif;
+    }
+    .w-lang-pill:hover { background: rgba(255,255,255,0.3); }
+    .w-tab-btn {
+      background: none; border: none; color: rgba(255,255,255,0.75);
+      font-size: 14px; cursor: pointer; padding: 4px 8px;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s ease;
+      position: relative; bottom: 0;
+    }
+    .w-tab-btn.active { color: #fff; border-bottom-color: #fff; }
+    .w-icon-btn {
+      background: none; border: none; color: rgba(255,255,255,0.8);
+      font-size: 15px; cursor: pointer; padding: 4px;
+      transition: color 0.2s ease;
+    }
+    .w-icon-btn:hover { color: #fff; }
+
+    /* Mode toggle bar */
+    .w-mode-bar {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .w-mode-btn {
+      flex: 1;
+      padding: 9px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px; font-weight: 600;
+      border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      color: var(--text-secondary);
+      background: #fff;
+      transition: all 0.2s ease;
+    }
+    .w-mode-btn.active { background: var(--primary); color: #fff; }
+
+    /* Conversation area */
+    .w-chat-area {
+      flex: 1;
+      overflow-y: auto;
+      background: #F7FAFB;
+      padding: 14px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      scroll-behavior: smooth;
+    }
+    .w-chat-area::-webkit-scrollbar { width: 4px; }
+    .w-chat-area::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+    /* Bubbles */
+    .msg-agent { display: flex; align-items: flex-end; gap: 8px; }
+    .msg-agent-avatar {
+      width: 26px; height: 26px; border-radius: 50%;
+      background: var(--primary); color: #fff;
+      font-size: 11px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .bubble-wrap { display: flex; flex-direction: column; gap: 3px; max-width: 78%; }
+    .bubble {
+      padding: 10px 14px;
+      font-size: 14px; line-height: 1.5;
+      border-radius: 12px 12px 12px 4px;
+      background: #fff;
+      color: var(--text-primary);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      word-wrap: break-word;
+      animation: bubble-in 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+    @keyframes bubble-in {
+      from { opacity: 0; transform: translateY(10px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .bubble.rtl {
+      direction: rtl;
+      text-align: right;
+    }
+    .bubble.user {
+      background: var(--primary); color: #fff;
+      border-radius: 12px 12px 4px 12px;
+      margin-left: auto;
+    }
+    .bubble-time { font-size: 11px; color: var(--text-disabled); }
+    .msg-user { display: flex; justify-content: flex-end; }
+    .msg-user .bubble-wrap { align-items: flex-end; }
+
+    /* Typing indicator */
+    .typing-indicator { display: flex; gap: 4px; padding: 12px 16px; }
+    .typing-indicator span {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--text-disabled);
+      animation: typing-bounce 1.2s ease infinite;
+    }
+    .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes typing-bounce {
+      0%,60%,100%{ transform: translateY(0); }
+      30%{ transform: translateY(-6px); }
+    }
+
+    /* Slot cards */
+    .slot-card {
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 6px;
+    }
+    .slot-card:hover { border-color: var(--primary); box-shadow: 0 3px 12px rgba(10,126,164,0.12); }
+    .slot-card.selected { border-color: var(--success); background: #F0FDF4; }
+    .slot-card.faded { opacity: 0.45; }
+    .slot-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--primary); color: #fff;
+      font-size: 12px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .slot-info { flex: 1; min-width: 0; }
+    .slot-doctor { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+    .slot-spec { font-size: 11px; color: var(--text-secondary); }
+    .slot-datetime { font-size: 12px; font-weight: 600; color: var(--text-primary); margin-top: 3px; }
+    .slot-duration {
+      font-size: 11px; color: var(--info);
+      background: var(--info-bg);
+      padding: 2px 8px; border-radius: 10px;
+      flex-shrink: 0;
+    }
+    .slot-select-btn {
+      background: var(--primary); color: #fff;
+      border: none; border-radius: 6px;
+      padding: 6px 12px; font-size: 12px; font-weight: 600;
+      cursor: pointer; flex-shrink: 0;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s ease;
+    }
+    .slot-select-btn:hover { background: var(--primary-dark); }
+    .slot-check { color: var(--success); font-size: 16px; flex-shrink: 0; }
+
+    /* Quick chips */
+    .w-chips {
+      padding: 8px 12px 4px;
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      flex-shrink: 0;
+      background: #fff;
+    }
+    .w-chips::-webkit-scrollbar { display: none; }
+    .chip {
+      white-space: nowrap;
+      background: #fff;
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+      border-radius: 20px;
+      padding: 5px 13px;
+      font-size: 12px; font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Inter', sans-serif;
+      flex-shrink: 0;
+    }
+    .chip:hover { background: var(--primary); color: #fff; }
+
+    /* Input area */
+    .w-input-area {
+      border-top: 1px solid var(--border);
+      padding: 10px 12px;
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      background: #fff;
+      flex-shrink: 0;
+    }
+    .w-input-area textarea {
+      flex: 1;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 9px 12px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      resize: none;
+      max-height: 72px;
+      overflow-y: auto;
+      line-height: 1.5;
+    }
+    .w-send-btn {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: none; cursor: pointer;
+      color: #fff; font-size: 14px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+    .w-send-btn:disabled { background: var(--border); cursor: default; }
+    .w-send-btn:not(:disabled):hover { background: var(--primary-dark); }
+    .w-mic-btn {
+      background: none; border: none; cursor: pointer;
+      color: var(--text-secondary); font-size: 16px;
+      padding: 6px; transition: color 0.2s ease;
+      flex-shrink: 0;
+    }
+    .w-mic-btn:hover { color: var(--primary); }
+
+    /* Booking summary card */
+    .summary-card {
+      background: #fff;
+      border: 1.5px solid var(--primary);
+      border-radius: 12px;
+      overflow: hidden;
+      width: 100%;
+    }
+    .summary-card-top {
+      height: 4px;
+      background: var(--primary);
+    }
+    .summary-card-header {
+      display: flex; align-items: center; gap: 8px;
+      padding: 12px 14px 8px;
+      font-size: 13px; font-weight: 600; color: var(--primary);
+    }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 12px;
+      padding: 8px 14px 12px;
+    }
+    .summary-item label {
+      display: block;
+      font-size: 11px; font-weight: 600; color: var(--text-secondary);
+      margin-bottom: 2px;
+    }
+    .summary-item span {
+      font-size: 13px; color: var(--text-primary);
+      word-break: break-word;
+    }
+    .summary-footer {
+      border-top: 1px solid var(--border);
+      padding: 10px 14px;
+      display: flex; gap: 8px;
+    }
+    .btn-summary-outline {
+      flex: 0 0 auto;
+      background: none;
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+      border-radius: 6px;
+      padding: 7px 14px;
+      font-size: 12px; font-weight: 600;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s ease;
+    }
+    .btn-summary-outline:hover { background: var(--primary); color: #fff; }
+    .btn-summary-confirm {
+      flex: 1;
+      background: var(--primary); color: #fff;
+      border: none; border-radius: 6px;
+      padding: 7px 14px;
+      font-size: 12px; font-weight: 600;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .btn-summary-confirm:hover { background: var(--primary-dark); }
+
+    /* Reference ID card */
+    .ref-card {
+      background: #F0FDF4;
+      border: 1.5px solid var(--success);
+      border-radius: 12px;
+      padding: 18px 14px;
+      text-align: center;
+      width: 100%;
+    }
+    .ref-checkmark {
+      width: 44px; height: 44px;
+      background: var(--success);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 22px;
+      margin: 0 auto 10px;
+      animation: check-pop 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+    }
+    @keyframes check-pop {
+      0%{ transform: scale(0); opacity: 0; }
+      100%{ transform: scale(1); opacity: 1; }
+    }
+    .ref-title { font-size: 16px; font-weight: 700; color: var(--success); margin-bottom: 10px; }
+    .ref-id-box {
+      display: flex; align-items: center; gap: 8px;
+      background: #F0F5F9; border-radius: 8px;
+      padding: 10px 12px; margin-bottom: 10px;
+      justify-content: center;
+    }
+    .ref-id { font-size: 18px; font-weight: 700; font-family: monospace; color: var(--text-primary); }
+    .ref-copy-btn {
+      background: none; border: none; cursor: pointer;
+      color: var(--text-secondary); font-size: 13px;
+      transition: color 0.2s ease; padding: 2px;
+    }
+    .ref-copy-btn:hover { color: var(--primary); }
+    .ref-email { font-size: 12px; color: var(--text-secondary); margin-bottom: 12px; }
+    .btn-book-another {
+      background: none; border: 1.5px solid var(--success);
+      color: var(--success); border-radius: 6px;
+      padding: 7px 16px; font-size: 12px; font-weight: 600;
+      cursor: pointer; font-family: 'Inter', sans-serif;
+      transition: all 0.2s ease;
+    }
+    .btn-book-another:hover { background: var(--success); color: #fff; }
+    .ref-time { font-size: 11px; color: var(--text-disabled); margin-top: 10px; }
+
+    /* Session timeout overlay */
+    .timeout-overlay {
+      position: absolute; inset: 0;
+      background: rgba(247,250,251,0.96);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 14px; text-align: center; padding: 24px;
+      z-index: 10;
+      border-radius: 0;
+    }
+    .timeout-icon { font-size: 36px; }
+    .timeout-title { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+    .timeout-sub { font-size: 13px; color: var(--text-secondary); }
+
+    /* Voice mode */
+    .w-voice-area {
+      flex: 1;
+      background: #F7FAFB;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 16px 12px;
+      gap: 16px;
+      overflow-y: auto;
+    }
+    .voice-mic-wrap { position: relative; display: flex; align-items: center; justify-content: center; }
+    .voice-mic-btn {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: none; cursor: pointer;
+      color: #fff; font-size: 30px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; z-index: 1;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 20px rgba(10,126,164,0.3);
+    }
+    .voice-mic-btn:hover { background: var(--primary-dark); }
+    .voice-mic-btn.listening { background: var(--primary-dark); }
+    .voice-pulse-ring {
+      position: absolute;
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      border: 3px solid var(--primary);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .voice-pulse-ring.animate {
+      animation: voice-ring 1.5s ease-out infinite;
+    }
+    @keyframes voice-ring {
+      0%{ transform: scale(1); opacity: 0.7; }
+      100%{ transform: scale(1.7); opacity: 0; }
+    }
+    .voice-label { font-size: 13px; color: var(--text-secondary); font-weight: 400; }
+    .voice-label.active { color: var(--primary); font-weight: 600; }
+    .voice-box-label {
+      font-size: 12px; font-weight: 600; color: var(--text-secondary);
+      align-self: flex-start; width: 100%;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .voice-box {
+      width: 100%;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      min-height: 56px;
+      font-size: 13px;
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+    .voice-controls {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      padding: 10px 12px;
+      border-top: 1px solid var(--border);
+      background: #fff;
+      flex-shrink: 0;
+    }
+    .voice-ctrl-btn {
+      display: flex; align-items: center; gap: 6px;
+      background: none;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 7px 14px;
+      font-size: 12px; font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s ease;
+    }
+    .voice-ctrl-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .voice-ctrl-btn.muted { border-color: var(--error); color: var(--error); }
+    .voice-history {
+      width: 100%;
+      max-height: 120px;
+      overflow-y: auto;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 12px; color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .voice-history::-webkit-scrollbar { width: 3px; }
+    .voice-history::-webkit-scrollbar-thumb { background: var(--border); }
+
+    /* Call tab */
+    .w-call-tab {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 24px;
+      gap: 14px;
+      text-align: center;
+      overflow-y: auto;
+    }
+    .call-phone-icon {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: rgba(10,126,164,0.1);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary); font-size: 22px;
+    }
+    .call-number {
+      font-size: 26px; font-weight: 700;
+      color: var(--text-primary); letter-spacing: 0.5px;
+      cursor: pointer;
+    }
+    .call-divider {
+      width: 100%; height: 1px;
+      background: var(--border);
+      margin: 4px 0;
+    }
+    .call-info-row {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 500;
+      color: var(--success);
+    }
+    .call-info-dot { width: 8px; height: 8px; background: var(--success); border-radius: 50%; }
+    .call-note { font-size: 12px; color: var(--text-disabled); }
+
+    /* Mobile nav drawer */
+    #mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1100;
+    }
+    #mobile-nav.open { display: block; }
+    .mobile-nav-panel {
+      position: absolute;
+      top: 0; right: 0;
+      width: 280px;
+      height: 100%;
+      background: var(--surface);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+    }
+    .mobile-nav-panel a {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-primary);
+      text-decoration: none;
+      padding: 12px 16px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    .mobile-nav-panel a:hover { background: var(--bg-page); color: var(--primary); }
+    .mobile-nav-close {
+      position: absolute;
+      top: 16px; right: 16px;
+      width: 32px; height: 32px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-secondary);
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================
+     PART 7 — DEMO BANNER
+============================================= -->
+<div id="demo-banner">
+  <span class="banner-badge">DEMO</span>
+  <span>HALO Platform — Hospital AI Liaison &amp; Operations — Patient-Facing Demo</span>
+  <a class="back-btn" href="#" onclick="event.preventDefault(); handleBackToHALO();">
+    <i class="fa-solid fa-arrow-left"></i> Back to HALO Platform
+  </a>
+</div>
+
+<!-- ============================================
+     PART 2.1 — TOP NAVIGATION BAR
+============================================= -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <!-- Logo -->
+    <a class="nav-logo" href="#hero">
+      <div class="nav-logo-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 11h-6V5a1 1 0 0 0-2 0v6H5a1 1 0 0 0 0 2h6v6a1 1 0 0 0 2 0v-6h6a1 1 0 0 0 0-2z"/>
+        </svg>
+      </div>
+      <div>
+        <div class="nav-logo-text">HALO City Hospital</div>
+        <div class="nav-logo-sub">Islamabad, Pakistan</div>
+      </div>
+    </a>
+
+    <!-- Center Nav Links -->
+    <ul class="nav-links">
+      <li><a href="#hero" class="active">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#doctors">Doctors</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#footer">Contact</a></li>
+    </ul>
+
+    <!-- Right Side -->
+    <div class="nav-right">
+      <div class="emergency-badge">
+        <span class="dot"></span>
+        Emergency: 1122
+      </div>
+      <button class="btn-primary" onclick="openWidget()">
+        <i class="fa-regular fa-calendar-check"></i>
+        Book Appointment
+      </button>
+      <div class="nav-hamburger" id="hamburger" onclick="openMobileNav()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav Drawer -->
+<div id="mobile-nav">
+  <div class="mobile-nav-panel">
+    <button class="mobile-nav-close" onclick="closeMobileNav()"><i class="fa-solid fa-xmark"></i></button>
+    <a href="#hero" onclick="closeMobileNav()">Home</a>
+    <a href="#services" onclick="closeMobileNav()">Services</a>
+    <a href="#doctors" onclick="closeMobileNav()">Doctors</a>
+    <a href="#about" onclick="closeMobileNav()">About Us</a>
+    <a href="#footer" onclick="closeMobileNav()">Contact</a>
+    <a href="tel:+921122" style="color:var(--error)"><i class="fa-solid fa-phone"></i> Emergency: 1122</a>
+    <button class="btn-primary" onclick="closeMobileNav(); openWidget();" style="margin-top:8px; justify-content:center;">
+      <i class="fa-regular fa-calendar-check"></i> Book Appointment
+    </button>
+  </div>
+</div>
+
+<!-- ============================================
+     PART 2.2 — HERO SECTION
+============================================= -->
+<section id="hero">
+  <div class="hero-inner">
+    <!-- Left -->
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        Islamabad's Leading AI-Powered Hospital
+      </div>
+      <h1 class="hero-title">HALO City<br/>Hospital</h1>
+      <p class="hero-tagline">Advanced Healthcare, Compassionate Care</p>
+      <p class="hero-desc">Serving Islamabad since 1998 with specialist care across 15 departments. Powered by the HALO AI platform for seamless appointment booking.</p>
+      <div class="hero-buttons">
+        <button class="btn-hero-primary" onclick="openWidget()">
+          <i class="fa-regular fa-calendar-check"></i>
+          Book Appointment
+        </button>
+        <a class="btn-outline-white" href="tel:+925111114256" onclick="handleCallClick(event, '+92-51-111-4256')">
+          <i class="fa-solid fa-phone"></i>
+          Call to Book
+        </a>
+      </div>
+    </div>
+
+    <!-- Right — Stats Card -->
+    <div class="hero-right">
+      <div class="hero-stats-card">
+        <div class="hero-stats-card-header">HALO City Hospital — At a Glance</div>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-icon" style="background:#EFF6FF; color:#3B82F6;">
+              <i class="fa-solid fa-clock"></i>
+            </div>
+            <div class="stat-value">24/7</div>
+            <div class="stat-label">Available</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon" style="background:rgba(10,126,164,0.08); color:var(--primary);">
+              <i class="fa-solid fa-stethoscope"></i>
+            </div>
+            <div class="stat-value">15+</div>
+            <div class="stat-label">Specialties</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon" style="background:#ECFDF5; color:var(--success);">
+              <i class="fa-solid fa-user-doctor"></i>
+            </div>
+            <div class="stat-value">50+</div>
+            <div class="stat-label">Doctors</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon" style="background:#FFFBEB; color:var(--warning);">
+              <i class="fa-solid fa-robot"></i>
+            </div>
+            <div class="stat-value">AI</div>
+            <div class="stat-label">Powered Booking</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     PART 2.3 — AI BOOKING HIGHLIGHT
+============================================= -->
+<section id="ai-booking">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">AI-Powered</div>
+      <div class="section-title">Book Your Appointment Instantly</div>
+      <p class="section-sub">Chat with our AI assistant or call directly — available 24/7 in English and Urdu</p>
+    </div>
+    <div class="ai-booking-cards">
+
+      <!-- Chat Card -->
+      <div class="ai-card">
+        <div class="ai-card-icon">
+          <i class="fa-regular fa-message"></i>
+        </div>
+        <h3>Chat with AI Assistant</h3>
+        <p>Text or voice conversation in English or Urdu. Book, reschedule or cancel appointments instantly — no hold music, no waiting.</p>
+        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+          <span style="font-size:12px; color:var(--text-secondary);"><i class="fa-solid fa-check" style="color:var(--success); margin-right:4px;"></i>English &amp; Urdu</span>
+          <span style="font-size:12px; color:var(--text-secondary);"><i class="fa-solid fa-check" style="color:var(--success); margin-right:4px;"></i>Voice &amp; Text</span>
+          <span style="font-size:12px; color:var(--text-secondary);"><i class="fa-solid fa-check" style="color:var(--success); margin-right:4px;"></i>Instant Response</span>
+        </div>
+        <button class="btn-primary" onclick="openWidget()" style="width:fit-content;">
+          <i class="fa-regular fa-message"></i> Start Chat
+        </button>
+      </div>
+
+      <!-- Call Card -->
+      <div class="ai-card">
+        <div class="ai-card-icon">
+          <i class="fa-solid fa-phone"></i>
+        </div>
+        <h3>Call Our AI Receptionist</h3>
+        <p>Dial our dedicated number to speak with HALO AI. No waiting, no hold music — instant connection every time.</p>
+
+        <div class="phone-wrap">
+          <div class="phone-display" id="hero-phone"
+               style="cursor:pointer;"
+               onclick="handleCallClick(event, '+92-51-111-4256')">
+            +92-51-111-4256
+          </div>
+          <div class="phone-copy-tooltip" id="hero-phone-tooltip">
+            <i class="fa-regular fa-copy"></i> Copied to clipboard!
+          </div>
+        </div>
+
+        <p class="phone-instructions">
+          Call this number to speak with our AI booking assistant
+          <span class="urdu">اپنی اپائنٹمنٹ بک کرنے کے لیے ہمارے AI اسسٹنٹ کو کال کریں</span>
+        </p>
+        <div class="avail-badge"><span class="dot"></span> Available 24/7</div>
+
+        <a class="btn-primary" href="tel:+925111114256" onclick="handleCallClick(event, '+92-51-111-4256')" style="width:fit-content;">
+          <i class="fa-solid fa-phone"></i> Call Now
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     PART 2.4 — SERVICES
+============================================= -->
+<section id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Medical Excellence</div>
+      <div class="section-title">Our Specialties</div>
+      <p class="section-sub">World-class care across 15 medical departments, all under one roof</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon" style="background:#FEF2F2;">❤️</div>
+        <div class="service-name">Cardiology</div>
+        <p class="service-desc">Comprehensive heart care, from diagnostics to advanced cardiac procedures.</p>
+        <a class="service-link" href="#" onclick="openWidget(); return false;">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" style="background:#EFF6FF;">🦴</div>
+        <div class="service-name">Orthopedics</div>
+        <p class="service-desc">Expert bone, joint, and muscle treatment including minimally invasive surgery.</p>
+        <a class="service-link" href="#" onclick="openWidget(); return false;">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" style="background:#ECFDF5;">👶</div>
+        <div class="service-name">Pediatrics</div>
+        <p class="service-desc">Dedicated care for infants, children, and adolescents in a child-friendly environment.</p>
+        <a class="service-link" href="#" onclick="openWidget(); return false;">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" style="background:#FFFBEB;">✨</div>
+        <div class="service-name">Dermatology</div>
+        <p class="service-desc">Advanced skin, hair, and nail treatments with the latest dermatological technology.</p>
+        <a class="service-link" href="#" onclick="openWidget(); return false;">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" style="background:#F5F3FF;">🧠</div>
+        <div class="service-name">Neurology</div>
+        <p class="service-desc">Specialized diagnosis and treatment for brain, spine, and nervous system disorders.</p>
+        <a class="service-link" href="#" onclick="openWidget(); return false;">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" style="background:rgba(10,126,164,0.07);">🩺</div>
+        <div class="service-name">General Medicine</div>
+        <p class="service-desc">Primary care and routine check-ups by experienced general practitioners.</p>
+        <a class="service-link" href="#" onclick="openWidget(); return false;">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     PART 2.5 — DOCTORS
+============================================= -->
+<section id="doctors">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Meet the Team</div>
+      <div class="section-title">Our Doctors</div>
+      <p class="section-sub">Board-certified specialists committed to your health and well-being</p>
+    </div>
+    <div class="doctors-grid">
+
+      <div class="doctor-card">
+        <div class="doctor-avatar">AM</div>
+        <div class="doctor-name">Dr. Ayesha Malik</div>
+        <div class="doctor-specialty">Cardiologist</div>
+        <div class="doctor-exp">MBBS, FCPS — 14 yrs experience</div>
+        <div class="avail-today"><span class="dot"></span> Available Today</div>
+        <button class="btn-primary" onclick="openWidget()">
+          <i class="fa-regular fa-calendar-check"></i> Book Now
+        </button>
+      </div>
+
+      <div class="doctor-card">
+        <div class="doctor-avatar" style="background:#075F7C;">TH</div>
+        <div class="doctor-name">Dr. Tariq Hassan</div>
+        <div class="doctor-specialty">Orthopedic Surgeon</div>
+        <div class="doctor-exp">MBBS, MS Ortho — 18 yrs experience</div>
+        <div class="avail-today"><span class="dot"></span> Available Today</div>
+        <button class="btn-primary" onclick="openWidget()">
+          <i class="fa-regular fa-calendar-check"></i> Book Now
+        </button>
+      </div>
+
+      <div class="doctor-card">
+        <div class="doctor-avatar" style="background:#0E9F7E;">SR</div>
+        <div class="doctor-name">Dr. Sana Riaz</div>
+        <div class="doctor-specialty">Pediatrician</div>
+        <div class="doctor-exp">MBBS, FCPS Paeds — 10 yrs experience</div>
+        <div class="avail-today"><span class="dot"></span> Available Today</div>
+        <button class="btn-primary" onclick="openWidget()">
+          <i class="fa-regular fa-calendar-check"></i> Book Now
+        </button>
+      </div>
+
+      <div class="doctor-card">
+        <div class="doctor-avatar" style="background:#5B21B6;">UF</div>
+        <div class="doctor-name">Dr. Usman Farooq</div>
+        <div class="doctor-specialty">Neurologist</div>
+        <div class="doctor-exp">MBBS, FCPS Neuro — 12 yrs experience</div>
+        <div class="avail-today"><span class="dot"></span> Available Today</div>
+        <button class="btn-primary" onclick="openWidget()">
+          <i class="fa-regular fa-calendar-check"></i> Book Now
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- About placeholder anchor -->
+<div id="about" style="height:0;"></div>
+
+<!-- ============================================
+     PART 3 — FLOATING WIDGET BUTTON
+============================================= -->
+<div id="widget-fab-wrap">
+  <div class="fab-label" id="fab-label">Book Appointment</div>
+  <button class="fab-btn" id="fab-btn" onclick="toggleWidget()" aria-label="Open booking assistant">
+    <i class="fa-regular fa-message" id="fab-icon"></i>
+  </button>
+</div>
+
+<!-- ============================================
+     PART 5 — CHAT WIDGET PANEL
+============================================= -->
+<div id="chat-widget" role="dialog" aria-label="HALO Booking Assistant">
+
+  <!-- 5.2 Header -->
+  <div class="w-header">
+    <div class="w-avatar">H</div>
+    <div class="w-header-info">
+      <div class="w-header-name">HALO — HALO City Hospital</div>
+      <div class="w-header-status"><span class="w-online-dot"></span> Online</div>
+    </div>
+    <div class="w-header-right">
+      <button class="w-lang-pill" id="lang-toggle" onclick="toggleLang()">EN</button>
+      <button class="w-tab-btn active" id="tab-chat" onclick="switchTab('chat')"><i class="fa-regular fa-message"></i></button>
+      <button class="w-tab-btn" id="tab-call" onclick="switchTab('call')"><i class="fa-solid fa-phone"></i></button>
+      <button class="w-icon-btn" onclick="minimizeWidget()" title="Minimize">−</button>
+      <button class="w-icon-btn" onclick="closeWidget()" title="Close">×</button>
+    </div>
+  </div>
+
+  <!-- CHAT TAB -->
+  <div id="panel-chat" style="display:flex; flex-direction:column; flex:1; overflow:hidden;">
+
+    <!-- 5.3 Mode toggle bar -->
+    <div class="w-mode-bar">
+      <button class="w-mode-btn active" id="mode-text" onclick="switchMode('text')">
+        <i class="fa-solid fa-keyboard"></i> Text Chat
+      </button>
+      <button class="w-mode-btn" id="mode-voice" onclick="switchMode('voice')">
+        <i class="fa-solid fa-microphone"></i> Voice Chat
+      </button>
+    </div>
+
+    <!-- TEXT MODE -->
+    <div id="text-mode-content" style="display:flex; flex-direction:column; flex:1; overflow:hidden; position:relative;">
+      <!-- Conversation area -->
+      <div class="w-chat-area" id="chat-messages"></div>
+      <!-- Session timeout overlay (hidden by default) -->
+      <div class="timeout-overlay" id="timeout-overlay" style="display:none;">
+        <div class="timeout-icon">⏱️</div>
+        <div class="timeout-title">Session Timed Out</div>
+        <div class="timeout-sub">Your session has timed out due to inactivity. Start a new conversation?</div>
+        <button class="btn-primary" onclick="resetConversation()" style="padding:10px 24px;">New Conversation</button>
+      </div>
+    </div>
+
+    <!-- VOICE MODE -->
+    <div id="voice-mode-content" style="display:none; flex-direction:column; flex:1; overflow:hidden;">
+      <div class="w-voice-area" id="voice-area">
+        <div class="voice-mic-wrap">
+          <div class="voice-pulse-ring" id="voice-ring"></div>
+          <button class="voice-mic-btn" id="voice-mic-btn" onclick="toggleMic()">
+            <i class="fa-solid fa-microphone"></i>
+          </button>
+        </div>
+        <div class="voice-label" id="voice-label">Tap to speak</div>
+
+        <div class="voice-box-label">Your speech</div>
+        <div class="voice-box" id="voice-transcript">Your speech will appear here…</div>
+
+        <div class="voice-box-label" id="halo-saying-label">
+          HALO is saying:
+          <i class="fa-solid fa-volume-high" id="speaker-icon" style="color:var(--primary); display:none;"></i>
+        </div>
+        <div class="voice-box" id="voice-response">AI response will appear here…</div>
+
+        <div class="voice-box-label">Conversation Transcript</div>
+        <div class="voice-history" id="voice-history">Your session transcript will appear here.</div>
+      </div>
+      <div class="voice-controls">
+        <button class="voice-ctrl-btn" id="mute-btn" onclick="toggleMute()">
+          <i class="fa-solid fa-volume-high"></i> Voice On
+        </button>
+        <button class="voice-ctrl-btn" onclick="switchMode('text')">
+          <i class="fa-solid fa-keyboard"></i> Switch to Text
+        </button>
+      </div>
+    </div>
+
+    <!-- Chips row (shown only in text mode) -->
+    <div class="w-chips" id="chips-row">
+      <button class="chip" onclick="sendChip('Book Appointment')">📅 Book Appointment</button>
+      <button class="chip" onclick="sendChip('Cancel Appointment')">❌ Cancel Appointment</button>
+      <button class="chip" onclick="sendChip('Check Availability')">🔍 Check Availability</button>
+      <button class="chip" onclick="sendChip('Speak to Doctor')">👨‍⚕️ Speak to Doctor</button>
+    </div>
+
+    <!-- Input area (shown only in text mode) -->
+    <div class="w-input-area" id="text-input-area">
+      <button class="w-mic-btn" onclick="switchMode('voice')" title="Switch to voice">
+        <i class="fa-solid fa-microphone"></i>
+      </button>
+      <textarea id="chat-input" placeholder="Type your message…" rows="1"
+        oninput="onInputChange()" onkeydown="onInputKeydown(event)"></textarea>
+      <button class="w-send-btn" id="send-btn" disabled onclick="sendUserMessage()">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- CALL TAB -->
+  <div id="panel-call" style="display:none; flex:1; overflow:hidden;">
+    <div class="w-call-tab">
+      <div class="call-phone-icon"><i class="fa-solid fa-phone"></i></div>
+      <div style="font-size:20px; font-weight:700; color:var(--text-primary);">Book by Phone</div>
+      <div style="font-size:14px; color:var(--text-secondary);">Call our AI booking assistant to schedule your appointment.</div>
+      <div class="call-number" onclick="handleCallClick(event, '+92-51-111-4256')">+92-51-111-4256</div>
+      <a class="btn-primary" href="tel:+925111114256" onclick="handleCallClick(event, '+92-51-111-4256')" style="width:100%; justify-content:center;">
+        <i class="fa-solid fa-phone"></i> Call Now
+      </a>
+      <div style="font-size:13px; color:var(--text-secondary);">Call this number to speak with our AI booking assistant</div>
+      <div style="font-size:13px; color:var(--text-secondary); direction:rtl;">اپنی اپائنٹمنٹ بک کرنے کے لیے کال کریں</div>
+      <div class="call-divider"></div>
+      <div class="call-info-row"><div class="call-info-dot"></div> Available 24/7</div>
+      <div style="font-size:13px; color:var(--text-secondary);">🌐 English &amp; Urdu supported</div>
+      <div class="call-note">No waiting time. Instant AI response.</div>
+    </div>
+  </div>
+
+</div><!-- end #chat-widget -->
+
+<!-- ============================================
+     PART 2.6 — FOOTER
+============================================= -->
+<footer id="footer">
+  <div class="footer-grid">
+    <!-- Col 1 -->
+    <div>
+      <div class="footer-logo">
+        <div class="footer-logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+            <path d="M19 11h-6V5a1 1 0 0 0-2 0v6H5a1 1 0 0 0 0 2h6v6a1 1 0 0 0 2 0v-6h6a1 1 0 0 0 0-2z"/>
+          </svg>
+        </div>
+        <div class="footer-logo-text">HALO City Hospital</div>
+      </div>
+      <p class="footer-desc">Delivering advanced, compassionate healthcare in Islamabad since 1998. Powered by HALO AI for seamless patient experiences.</p>
+      <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i> Blue Area, Islamabad, Pakistan</div>
+      <div class="footer-contact-item"><i class="fa-solid fa-phone"></i> +92-51-111-4256</div>
+      <div class="footer-contact-item"><i class="fa-solid fa-envelope"></i> info@halocityhospital.com</div>
+    </div>
+
+    <!-- Col 2 -->
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#services">Our Services</a></li>
+        <li><a href="#doctors">Our Doctors</a></li>
+        <li><a href="#ai-booking">Book Appointment</a></li>
+        <li><a href="#footer">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Col 3 -->
+    <div>
+      <div class="footer-col-title">Specialties</div>
+      <ul class="footer-links">
+        <li><a href="#services">Cardiology</a></li>
+        <li><a href="#services">Orthopedics</a></li>
+        <li><a href="#services">Pediatrics</a></li>
+        <li><a href="#services">Dermatology</a></li>
+        <li><a href="#services">Neurology</a></li>
+        <li><a href="#services">General Medicine</a></li>
+      </ul>
+    </div>
+
+    <!-- Col 4 — HALO Platform -->
+    <div class="footer-halo">
+      <div class="footer-col-title">Platform</div>
+      <div class="halo-power-badge">
+        <div class="halo-power-label">Powered by</div>
+        <div class="halo-logo-box">
+          <span class="halo-letter">H</span>
+          <div>
+            <span>HALO Platform</span><br/>
+            <span style="font-size:11px; color:rgba(255,255,255,0.45);">Hospital AI &amp; Operations</span>
+          </div>
+        </div>
+      </div>
+      <p class="footer-halo-desc">AI-powered appointment booking, patient management, and operations platform for hospitals across Pakistan.</p>
+      <div class="avail-badge" style="background:rgba(16,185,129,0.12); border:1px solid rgba(16,185,129,0.25);">
+        <span class="dot"></span> Available 24/7
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom" style="border-top:1px solid rgba(255,255,255,0.08); max-width:1200px; margin:0 auto; padding:18px 24px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+    <p style="font-size:12px; color:rgba(255,255,255,0.35);">© 2026 HALO City Hospital. All rights reserved. Powered by HALO Platform.</p>
+    <div style="display:flex; gap:20px;">
+      <a href="#" style="font-size:12px; color:rgba(255,255,255,0.35); text-decoration:none;">Privacy Policy</a>
+      <a href="#" style="font-size:12px; color:rgba(255,255,255,0.35); text-decoration:none;">Terms of Service</a>
+      <a href="#" style="font-size:12px; color:rgba(255,255,255,0.35); text-decoration:none;">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
+<!-- =============================================
+     JAVASCRIPT — Parts 1 & 2 helpers
+============================================= -->
+<script>
+  // --- Back to HALO Platform ---
+  function handleBackToHALO() {
+    if (window.opener && !window.opener.closed) {
+      // Opened from another tab — return focus to it and close this
+      window.opener.focus();
+      window.close();
+    } else if (document.referrer && document.referrer !== window.location.href) {
+      // Came from another page — go back
+      window.history.back();
+    } else {
+      // Opened directly (no referrer) — show helpful toast
+      let toast = document.getElementById('global-back-toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'global-back-toast';
+        toast.style.cssText = [
+          'position:fixed', 'bottom:100px', 'left:50%', 'transform:translateX(-50%)',
+          'background:#1A2B3C', 'color:#fff', 'padding:12px 22px', 'border-radius:8px',
+          'font-size:13px', 'font-weight:500', 'z-index:9999',
+          'box-shadow:0 4px 16px rgba(0,0,0,0.25)', 'transition:opacity 0.3s ease',
+          'display:flex', 'align-items:center', 'gap:10px', 'white-space:nowrap'
+        ].join(';');
+        document.body.appendChild(toast);
+      }
+      toast.innerHTML = '<i class="fa-solid fa-circle-info" style="color:#60A5FA;font-size:16px;"></i> Open this page from the HALO Platform to use this button.';
+      toast.style.opacity = '1';
+      clearTimeout(toast._timer);
+      toast._timer = setTimeout(() => { toast.style.opacity = '0'; }, 4000);
+    }
+  }
+
+  // --- Mobile Nav ---
+  function openMobileNav() {
+    document.getElementById('mobile-nav').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobileNav() {
+    document.getElementById('mobile-nav').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('mobile-nav').addEventListener('click', function(e) {
+    if (e.target === this) closeMobileNav();
+  });
+
+
+  // --- Phone call / copy handler ---
+  function handleCallClick(e, number) {
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    if (isMobile) return; // allow tel: link to proceed on mobile
+    e.preventDefault();
+    // Desktop: copy to clipboard
+    navigator.clipboard.writeText(number.replace(/\D/g, '').replace(/^/, '+')).then(() => {}).catch(() => {});
+    // Show tooltip if exists
+    const tooltipId = e.currentTarget.id ? e.currentTarget.id + '-tooltip' : null;
+    showCopyToast(number);
+  }
+
+  function showCopyToast(number) {
+    navigator.clipboard.writeText('+925111114256').catch(() => {});
+    // Simple toast
+    let toast = document.getElementById('global-copy-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'global-copy-toast';
+      toast.style.cssText = `
+        position:fixed; bottom:100px; left:50%; transform:translateX(-50%);
+        background:#1A2B3C; color:#fff; padding:10px 20px; border-radius:8px;
+        font-size:13px; font-weight:500; z-index:9999;
+        box-shadow:0 4px 16px rgba(0,0,0,0.2);
+        transition:opacity 0.3s ease;
+      `;
+      document.body.appendChild(toast);
+    }
+    toast.textContent = '📋 Phone number copied: ' + number;
+    toast.style.opacity = '1';
+    clearTimeout(toast._timer);
+    toast._timer = setTimeout(() => { toast.style.opacity = '0'; }, 3000);
+  }
+
+  // --- Active nav highlight on scroll ---
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const sections = ['hero','ai-booking','services','doctors','footer'];
+  window.addEventListener('scroll', () => {
+    let current = 'hero';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 120) current = id;
+    });
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+    });
+  });
+
+  // ====================================================
+  //  PARTS 3, 4, 5 — WIDGET ENGINE
+  // ====================================================
+  let widgetOpen = false;
+  let chatInitialized = false;
+  let conversationState = 'idle';
+  let bookingData = {};
+  let sessionTimer = null;
+  const TIMEOUT_MS = 15 * 60 * 1000;
+  let voiceTranscriptLog = [];
+  let currentMode = 'text';
+  let lang = 'EN';
+  let micActive = false;
+  let voiceMuted = false;
+  let voiceSimTimer = null;
+  const voiceSimText = "I want to book an appointment with a cardiologist for next week.";
+
+  function openWidget() {
+    widgetOpen = true;
+    document.getElementById('chat-widget').classList.add('open');
+    document.getElementById('fab-btn').classList.add('open');
+    document.getElementById('fab-icon').className = 'fa-solid fa-xmark';
+    document.getElementById('fab-label').style.display = 'none';
+    if (!chatInitialized) initChat();
+    resetTimeout();
+  }
+  function closeWidget() {
+    widgetOpen = false;
+    document.getElementById('chat-widget').classList.remove('open');
+    document.getElementById('fab-btn').classList.remove('open');
+    document.getElementById('fab-icon').className = 'fa-regular fa-message';
+    document.getElementById('fab-label').style.display = '';
+    clearTimeout(sessionTimer);
+  }
+  function minimizeWidget() { closeWidget(); }
+  function toggleWidget() { widgetOpen ? closeWidget() : openWidget(); }
+
+  function switchTab(tab) {
+    const isChat = tab === 'chat';
+    document.getElementById('panel-chat').style.display = isChat ? 'flex' : 'none';
+    document.getElementById('panel-call').style.display = isChat ? 'none' : 'flex';
+    document.getElementById('tab-chat').classList.toggle('active', isChat);
+    document.getElementById('tab-call').classList.toggle('active', !isChat);
+  }
+
+  function switchMode(mode) {
+    currentMode = mode;
+    const isText = mode === 'text';
+    document.getElementById('text-mode-content').style.display = isText ? 'flex' : 'none';
+    document.getElementById('voice-mode-content').style.display = isText ? 'none' : 'flex';
+    document.getElementById('chips-row').style.display = isText ? 'flex' : 'none';
+    document.getElementById('text-input-area').style.display = isText ? 'flex' : 'none';
+    document.getElementById('mode-text').classList.toggle('active', isText);
+    document.getElementById('mode-voice').classList.toggle('active', !isText);
+  }
+
+  function toggleLang() {
+    lang = lang === 'EN' ? 'UR' : 'EN';
+    document.getElementById('lang-toggle').textContent = lang;
+  }
+
+  function getNextWeekdays(n) {
+    const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const result=[]; let d=new Date(); d.setDate(d.getDate()+1);
+    while(result.length<n){
+      if(d.getDay()!==0&&d.getDay()!==6) result.push(`${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`);
+      d.setDate(d.getDate()+1);
+    }
+    return result;
+  }
+  const weekdays = getNextWeekdays(3);
+  const slotDoctors = [
+    {name:'Dr. Ayesha Malik',spec:'Cardiologist',initials:'AM',color:'#0A7EA4',time:'10:00 AM'},
+    {name:'Dr. Tariq Hassan',spec:'Orthopedic Surgeon',initials:'TH',color:'#075F7C',time:'11:30 AM'},
+    {name:'Dr. Sana Riaz',spec:'Pediatrician',initials:'SR',color:'#0E9F7E',time:'2:00 PM'}
+  ];
+
+  const T = {
+    EN:{
+      welcome:"👋 Hello! I'm HALO, your AI appointment assistant for HALO City Hospital. How can I help you today?",
+      askSpecialty:"Sure! I can help you book an appointment. Which doctor or specialty are you looking for?",
+      slotsFound:"Great! I found available slots. Please select one:",
+      askName:"Got it! I'll need a few details. What is your full name?",
+      askPhone:(name)=>`Thank you, ${name}! What is your contact number?`,
+      askEmail:"And your email address for the confirmation?",
+      askReason:"Last question — briefly describe your visit reason.",
+      confirmed:(email)=>`✅ Your appointment is confirmed! A confirmation email has been sent to ${email}.`,
+      askCancelId:"Please provide your appointment reference ID.",
+      cancelled:(id)=>`Your appointment ${id} has been cancelled. You will receive a confirmation email shortly.`,
+      askAvailSpecialty:"Which doctor or specialty are you interested in?",
+      speakDoctor:"I'll connect you with our medical team shortly. Meanwhile, you can book an appointment or check availability.",
+      editPrompt:"Which detail would you like to change? (Doctor / Date / Time / Reason)",
+      bookAnother:"Sure! Which doctor or specialty would you like to book with?",
+    },
+    UR:{
+      welcome:"👋 سلام! میں HALO ہوں، آپ کا AI اپائنٹمنٹ اسسٹنٹ۔ آج میں آپ کی کیا مدد کر سکتا ہوں؟",
+      askSpecialty:"بالکل! میں آپ کی اپائنٹمنٹ بک کرنے میں مدد کر سکتا ہوں۔ آپ کس ڈاکٹر یا اسپیشلٹی کی تلاش میں ہیں؟",
+      slotsFound:"بہترین! میں نے دستیاب سلاٹس تلاش کیے ہیں۔ براہ کرم ایک منتخب کریں:",
+      askName:"ٹھیک ہے! مجھے چند تفصیلات چاہئیں۔ آپ کا پورا نام کیا ہے؟",
+      askPhone:(name)=>`شکریہ، ${name}! آپ کا رابطہ نمبر کیا ہے؟`,
+      askEmail:"اور تصدیق کے لیے آپ کا ای میل پتہ؟",
+      askReason:"آخری سوال — مختصراً اپنی وزٹ کی وجہ بتائیں۔",
+      confirmed:(email)=>`✅ آپ کی اپائنٹمنٹ کنفرم ہو گئی! تصدیقی ای میل ${email} پر بھیج دی گئی ہے۔`,
+      askCancelId:"براہ کرم اپنا اپائنٹمنٹ ریفرنس ID فراہم کریں۔",
+      cancelled:(id)=>`آپ کی اپائنٹمنٹ ${id} منسوخ کر دی گئی ہے۔ آپ کو جلد ہی تصدیقی ای میل ملے گی۔`,
+      askAvailSpecialty:"آپ کس ڈاکٹر یا اسپیشلٹی میں دلچسپی رکھتے ہیں؟",
+      speakDoctor:"میں آپ کو جلد ہی ہماری میڈیکل ٹیم سے جوڑوں گا۔",
+      editPrompt:"آپ کون سی تفصیل تبدیل کرنا چاہتے ہیں؟ (ڈاکٹر / تاریخ / وقت / وجہ)",
+      bookAnother:"ضرور! آپ کس ڈاکٹر یا اسپیشلٹی سے اپائنٹمنٹ لینا چاہتے ہیں؟",
+    }
+  };
+  function t(key,...args){const fn=T[lang][key];return typeof fn==='function'?fn(...args):fn;}
+
+  function initChat(){
+    chatInitialized=true; conversationState='idle'; bookingData={};
+    document.getElementById('chips-row').style.display='flex';
+    const area=document.getElementById('chat-messages');
+    area.innerHTML='';
+    addAgentMsg(t('welcome'));
+  }
+
+  function resetTimeout(){
+    clearTimeout(sessionTimer);
+    document.getElementById('timeout-overlay').style.display='none';
+    sessionTimer=setTimeout(()=>{document.getElementById('timeout-overlay').style.display='flex';},TIMEOUT_MS);
+  }
+  function resetConversation(){chatInitialized=false;initChat();resetTimeout();}
+
+  function nowTime(){return new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});}
+
+  function isUrdu(text) {
+    const urduPattern = /[\u0600-\u06FF]/;
+    return urduPattern.test(text);
+  }
+
+  function addAgentMsg(text){
+    const area=document.getElementById('chat-messages');
+    const w=document.createElement('div'); w.className='msg-agent';
+    const rtlClass = isUrdu(text) ? 'rtl' : '';
+    w.innerHTML=`<div class="msg-agent-avatar">H</div><div class="bubble-wrap"><div class="bubble ${rtlClass}">${text}</div><div class="bubble-time">${nowTime()}</div></div>`;
+    area.appendChild(w); area.scrollTop=area.scrollHeight;
+    addVoiceHistory('HALO: '+text.replace(/<[^>]*>/g,''));
+  }
+
+  function addUserMsg(text){
+    const area=document.getElementById('chat-messages');
+    const w=document.createElement('div'); w.className='msg-user';
+    const rtlClass = isUrdu(text) ? 'rtl' : '';
+    w.innerHTML=`<div class="bubble-wrap"><div class="bubble user ${rtlClass}">${text}</div><div class="bubble-time">${nowTime()}</div></div>`;
+    area.appendChild(w); area.scrollTop=area.scrollHeight;
+    addVoiceHistory('You: '+text);
+  }
+
+  function showTyping(){
+    const area=document.getElementById('chat-messages');
+    const el=document.createElement('div'); el.className='msg-agent'; el.id='typing-indicator';
+    el.innerHTML=`<div class="msg-agent-avatar">H</div><div class="bubble-wrap"><div class="bubble" style="padding:8px 14px;"><div class="typing-indicator"><span></span><span></span><span></span></div></div></div>`;
+    area.appendChild(el); area.scrollTop=area.scrollHeight;
+  }
+  function hideTyping(){const el=document.getElementById('typing-indicator');if(el)el.remove();}
+
+  function agentReply(text,delay=1500){
+    showTyping();
+    setTimeout(()=>{hideTyping();addAgentMsg(text);},delay);
+  }
+
+  function showSlotCards(){
+    const area=document.getElementById('chat-messages');
+    const wrap=document.createElement('div'); wrap.className='msg-agent'; wrap.style.flexDirection='column'; wrap.style.alignItems='flex-start';
+    const inner=document.createElement('div'); inner.style.width='100%';
+    slotDoctors.forEach((doc,i)=>{
+      const card=document.createElement('div'); card.className='slot-card'; card.id=`slot-${i}`;
+      card.innerHTML=`<div class="slot-avatar" style="background:${doc.color}">${doc.initials}</div><div class="slot-info"><div class="slot-doctor">${doc.name}</div><div class="slot-spec">${doc.spec}</div><div class="slot-datetime">${weekdays[i]} · ${doc.time}</div></div><div class="slot-duration">30 min</div><button class="slot-select-btn" onclick="selectSlot(${i})">Select</button>`;
+      inner.appendChild(card);
+    });
+    wrap.appendChild(inner); area.appendChild(wrap); area.scrollTop=area.scrollHeight;
+  }
+
+  function selectSlot(idx){
+    bookingData.doctor=slotDoctors[idx].name; bookingData.specialty=slotDoctors[idx].spec;
+    bookingData.date=weekdays[idx]; bookingData.time=slotDoctors[idx].time;
+    slotDoctors.forEach((_,i)=>{
+      const c=document.getElementById(`slot-${i}`); if(!c)return;
+      if(i===idx){c.classList.add('selected');c.querySelector('.slot-select-btn').innerHTML='<i class="fa-solid fa-check"></i>';c.querySelector('.slot-select-btn').disabled=true;}
+      else{c.classList.add('faded');c.querySelector('.slot-select-btn').disabled=true;}
+    });
+    conversationState='booking_name'; agentReply(t('askName'));
+  }
+
+  function showSummaryCard(){
+    const area=document.getElementById('chat-messages');
+    const wrap=document.createElement('div'); wrap.className='msg-agent'; wrap.style.width='100%';
+    wrap.innerHTML=`<div class="summary-card" id="summary-card-el"><div class="summary-card-top"></div><div class="summary-card-header"><i class="fa-regular fa-calendar-check"></i> Booking Summary</div><div class="summary-grid"><div class="summary-item"><label>Doctor</label><span>${bookingData.doctor}</span></div><div class="summary-item"><label>Specialty</label><span>${bookingData.specialty}</span></div><div class="summary-item"><label>Date</label><span>${bookingData.date}</span></div><div class="summary-item"><label>Time</label><span>${bookingData.time}</span></div><div class="summary-item"><label>Duration</label><span>30 minutes</span></div><div class="summary-item"><label>Patient</label><span>${bookingData.name}</span></div><div class="summary-item"><label>Contact</label><span>${bookingData.phone}</span></div><div class="summary-item"><label>Email</label><span>${bookingData.email}</span></div><div class="summary-item" style="grid-column:1/-1"><label>Visit Reason</label><span>${bookingData.reason}</span></div></div><div class="summary-footer"><button class="btn-summary-outline" onclick="editBooking()"><i class="fa-solid fa-pen"></i> Edit Details</button><button class="btn-summary-confirm" id="confirm-booking-btn" onclick="confirmBooking()"><i class="fa-regular fa-calendar-check"></i> Confirm Booking</button></div></div>`;
+    area.appendChild(wrap); area.scrollTop=area.scrollHeight;
+  }
+
+  function editBooking(){conversationState='edit_prompt';agentReply(t('editPrompt'));}
+
+  function confirmBooking(){
+    const btn=document.getElementById('confirm-booking-btn'); if(!btn)return;
+    btn.innerHTML='<i class="fa-solid fa-spinner fa-spin"></i> Processing…'; btn.disabled=true;
+    setTimeout(()=>{
+      const card=document.getElementById('summary-card-el');
+      if(card)card.closest('.msg-agent').remove();
+      showRefCard(); agentReply(t('confirmed',bookingData.email)); conversationState='idle';
+      setTimeout(()=>{ document.getElementById('chips-row').style.display='flex'; }, 2500);
+    },1500);
+  }
+
+  function showRefCard(){
+    const refId='HCH-'+Math.random().toString(36).substr(2,6).toUpperCase();
+    bookingData.refId=refId;
+    const now=new Date().toLocaleString('en-PK',{dateStyle:'medium',timeStyle:'short'});
+    const area=document.getElementById('chat-messages');
+    const wrap=document.createElement('div'); wrap.className='msg-agent'; wrap.style.width='100%';
+    wrap.innerHTML=`<div class="ref-card"><div class="ref-checkmark"><i class="fa-solid fa-check"></i></div><div class="ref-title">Booking Confirmed!</div><div class="ref-id-box"><span class="ref-id">${refId}</span><button class="ref-copy-btn" onclick="copyRefId('${refId}')" title="Copy ID"><i class="fa-regular fa-copy"></i></button></div><div class="ref-email"><i class="fa-regular fa-envelope"></i> Confirmation sent to ${bookingData.email}</div><button class="btn-book-another" onclick="bookAnother()">Book Another Appointment</button><div class="ref-time">Booked on ${now}</div></div>`;
+    area.appendChild(wrap); area.scrollTop=area.scrollHeight;
+  }
+
+  function copyRefId(id){navigator.clipboard.writeText(id).catch(()=>{});showCopyToast('ID '+id+' copied!');}
+
+  function bookAnother(){
+    bookingData={}; conversationState='booking_specialty';
+    agentReply(t('bookAnother'));
+    document.getElementById('chips-row').style.display='none';
+  }
+
+  function processInput(text){
+    const lower=text.toLowerCase().trim();
+    if(conversationState==='idle'){
+      if(lower.includes('book')||lower.includes('appointment')){conversationState='booking_specialty';agentReply(t('askSpecialty'));document.getElementById('chips-row').style.display='none';}
+      else if(lower.includes('cancel')){conversationState='awaiting_cancel_id';agentReply(t('askCancelId'));document.getElementById('chips-row').style.display='none';}
+      else if(lower.includes('availability')||lower.includes('available')||lower.includes('check')){conversationState='awaiting_avail_specialty';agentReply(t('askAvailSpecialty'));document.getElementById('chips-row').style.display='none';}
+      else if(lower.includes('speak')||lower.includes('doctor')){agentReply(t('speakDoctor'));}
+      else{agentReply("I'm here to help you book, reschedule, or cancel appointments. What would you like to do?");}
+      return;
+    }
+    if(conversationState==='booking_slots'){
+      agentReply("Please select one of the appointment slots shown above by clicking the \"Select\" button.");
+      return;
+    }
+    if(conversationState==='awaiting_confirm'){
+      agentReply("Please review the booking summary above and click \"Confirm Booking\" to proceed, or \"Edit Details\" to make changes.");
+      return;
+    }
+    if(conversationState==='booking_specialty'||conversationState==='awaiting_avail_specialty'){
+      bookingData.specialty_query=text; conversationState='booking_slots';
+      showTyping(); setTimeout(()=>{hideTyping();addAgentMsg(t('slotsFound'));showSlotCards();},1500); return;
+    }
+    if(conversationState==='booking_name'){bookingData.name=text;conversationState='booking_phone';agentReply(t('askPhone',text));return;}
+    if(conversationState==='booking_phone'){bookingData.phone=text;conversationState='booking_email';agentReply(t('askEmail'));return;}
+    if(conversationState==='booking_email'){bookingData.email=text;conversationState='booking_reason';agentReply(t('askReason'));return;}
+    if(conversationState==='booking_reason'){bookingData.reason=text;conversationState='awaiting_confirm';showTyping();setTimeout(()=>{hideTyping();showSummaryCard();},1500);return;}
+    if(conversationState==='awaiting_cancel_id'){conversationState='idle';agentReply(t('cancelled',text));setTimeout(()=>{document.getElementById('chips-row').style.display='flex';},2000);return;}
+    if(conversationState==='edit_prompt'){conversationState='booking_specialty';agentReply(t('askSpecialty'));return;}
+    agentReply("I'm here to help. Type 'book', 'cancel', or 'availability' to get started.");
+  }
+
+  function sendUserMessage(){
+    const inp=document.getElementById('chat-input');
+    const text=inp.value.trim(); if(!text)return;
+    inp.value=''; inp.style.height='';
+    document.getElementById('send-btn').disabled=true;
+    addUserMsg(text); resetTimeout(); processInput(text);
+  }
+  function sendChip(text){addUserMsg(text);resetTimeout();processInput(text);}
+  function onInputChange(){
+    const inp=document.getElementById('chat-input');
+    document.getElementById('send-btn').disabled=inp.value.trim()==='';
+    inp.style.height='auto'; inp.style.height=Math.min(inp.scrollHeight,72)+'px'; resetTimeout();
+  }
+  function onInputKeydown(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendUserMessage();}}
+
+  // Voice mode
+  function toggleMic(){
+    micActive=!micActive;
+    const btn=document.getElementById('voice-mic-btn');
+    const ring=document.getElementById('voice-ring');
+    const label=document.getElementById('voice-label');
+    const speakerIcon=document.getElementById('speaker-icon');
+    if(micActive){
+      btn.classList.add('listening'); ring.classList.add('animate');
+      label.textContent='Listening…'; label.classList.add('active');
+      document.getElementById('voice-transcript').textContent='';
+      document.getElementById('voice-response').textContent='AI response will appear here…';
+      speakerIcon.style.display='none'; simulateVoiceInput();
+    } else {
+      btn.classList.remove('listening'); ring.classList.remove('animate');
+      label.textContent='Tap to speak'; label.classList.remove('active');
+      clearTimeout(voiceSimTimer);
+    }
+  }
+  function simulateVoiceInput(){
+    const box=document.getElementById('voice-transcript'); box.textContent=''; let i=0;
+    function typeChar(){
+      if(i<voiceSimText.length&&micActive){box.textContent+=voiceSimText[i++];voiceSimTimer=setTimeout(typeChar,55);}
+      else if(micActive){
+        micActive=false;
+        document.getElementById('voice-mic-btn').classList.remove('listening');
+        document.getElementById('voice-ring').classList.remove('animate');
+        document.getElementById('voice-label').textContent='Tap to speak';
+        document.getElementById('voice-label').classList.remove('active');
+        processVoiceInput(voiceSimText);
+      }
+    }
+    typeChar();
+  }
+  function processVoiceInput(text){
+    const respBox=document.getElementById('voice-response');
+    const speakerIcon=document.getElementById('speaker-icon');
+    const ring=document.getElementById('voice-ring');
+    const response="Great! I found available slots for Cardiology. Please select a slot — switch to Text Chat for the full booking flow.";
+    
+    // "Thinking" state
+    respBox.textContent='HALO is thinking…';
+    setTimeout(() => {
+      speakerIcon.style.display='inline';
+      ring.classList.add('animate'); // Use the pulse ring for AI talking too
+      respBox.textContent=''; let i=0;
+      function typeResp(){
+        if(i<response.length){
+          respBox.textContent+=response[i++];
+          setTimeout(typeResp,30);
+        } else {
+          setTimeout(()=>{
+            speakerIcon.style.display='none';
+            ring.classList.remove('animate');
+          },2000);
+        }
+      }
+      typeResp();
+      addVoiceHistory('You: '+text); addVoiceHistory('HALO: '+response);
+    }, 1200);
+  }
+  function addVoiceHistory(line){
+    const h=document.getElementById('voice-history'); if(!h)return;
+    if(h.textContent==='Your session transcript will appear here.')h.textContent='';
+    h.textContent+=line+'\n'; h.scrollTop=h.scrollHeight;
+  }
+  function toggleMute(){
+    voiceMuted=!voiceMuted;
+    const btn=document.getElementById('mute-btn');
+    btn.classList.toggle('muted',voiceMuted);
+    btn.innerHTML=voiceMuted?'<i class="fa-solid fa-volume-xmark"></i> Voice Off':'<i class="fa-solid fa-volume-high"></i> Voice On';
+  }
+</script>
+
+</body>
+</html>

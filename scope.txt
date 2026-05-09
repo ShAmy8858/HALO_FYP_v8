@@ -1,0 +1,1139 @@
+ 
+COMSATS University Islamabad (CUI)
+Project 
+Proposal
+F
+or
+ 
+HALO
+(
+Hospital AI Liaison & Operations
+)
+Version 1.0
+By
+Ihtisham Ul Islam
+      
+CIIT/
+SP
+23
+-BS
+E
+-
+016
+/ISB
+Shahid Nabi
+    
+      
+CIIT/
+SP
+23
+-BS
+E
+-
+042
+/ISB
+Supervisor
+Dr. Tehseen Riaz Abbasi
+ 
+Bachelor of Science in 
+Software Engineering
+ (20
+23
+-20
+27
+)
+Contents
+Abstract
+1
+1.
+Introduction
+2
+2.
+Problem Statement
+2
+3.
+Problem Solution/Objectives of the Proposed System
+3
+3.1
+Objectives
+3
+4.
+Related System Analysis
+4
+5.
+Vision Statement
+4
+6.
+Scope
+5
+7.
+Modules
+5
+7.1
+Module 1: User Profiling & Access Control (Admin & Hospital Manager)
+5
+7.2
+Module 2: Hospital Tenant Onboarding (Hospital Manager)
+5
+7.3
+Module 3: Platform Administration (Admin)
+5
+7.4
+Module 4: Clinical Resources (Hospital Manager)
+6
+7.5
+Module 5: 
+AI-Driven Appointments (Patient & AI agent)
+6
+7.6
+Module 6: Operations Console (Hospital Manager)
+6
+7.7
+Module 7: Search & Filter
+7
+7.8
+Module 8: Report & Analytics
+7
+7.9
+Module 9: Notifications & Reminders
+7
+7.10
+Module 10: Billing & Subscription
+7
+8.
+System Limitations/Constraints
+8
+9.
+Data Gathering Approach
+8
+10.
+Project Contribution
+9
+11.
+Relevance to Course Modules
+9
+12.
+Tools and Technologies
+10
+13.
+Project Stakeholders and Roles
+11
+14.
+Module based Work Division
+11
+15.
+WBS and Gantt Chart
+12
+16.
+Mockups
+14
+17.
+References
+17
+18.
+Plagiarism Report
+17
+Project Category:
+ 
+ 
+B-
+Web Application/Web Application based Information System 
+ 
+C-
+Problem Solving and Artificial Intelligence 
+ 
+B-
+Web Application/Web Application based Information System 
+ 
+C-
+Problem Solving and Artificial Intelligence 
+Abstract
+The healthcare sector in Pakistan faces persistent operational inefficiencies in managing patient appointments due to heavy reliance on manual telephone-based
+ or 
+form-based
+ scheduling systems. These traditional practices place significant administrative burden on hospital staff, restrict patient access to services outside working hours, and frequently result in scheduling errors and communication delays. To address these challenges, this project proposes HALO, an 
+agentic
+ conversational appointment management platform designed specifically for hospitals operating in Pakistan.
+ 
+HALO will automate routine appointment-related interactions through conversational artificial intelligence capable of handling bookings, rescheduling, and cancellations without human intervention. 
+The system will provide patients with voice-based and text-based interaction modes accessible through hospital website integrations, as well as a dedicated telephony-based interaction channel that allows patients to connect directly to the HALO AI agent via a hospital-provided 
+phone number
+ and
+ will support bilingual communication 
+such as
+ English and Urdu. Real-time verification of 
+doctoral
+ availability and automated slot allocation will ensure accurate scheduling while minimizing conflicts and double bookings.
+ 
+The platform will include role-based management tools allowing hospital managers to monitor appointments, manage doctor schedules, and record in-person walk-in appointments when required. A centralized administrative layer will oversee hospital onboarding, subscription management, platform configuration. Unlike marketplace-based healthcare platforms, HALO will operate as a white-label solution, enabling individual hospitals to maintain institutional identity while benefiting from shared infrastructure
+. 
+By reducing administrative workload, improving appointment accessibility, and minimizing scheduling errors, HALO aims to establish a scalable and efficient digital foundation for appointment management in the Pakistani healthcare system.
+Introduction
+Hospitals across Pakistan continue to depend largely on manual appointment scheduling methods, primarily handled through telephone calls and physical registers
+ by
+ human
+ receptionists
+. These approaches limit patient accessibility, increase administrative workload, and restrict appointment services to specific operating hours. As healthcare demand grows and patient expectations evolve, there is an increasing need for automated systems that can manage appointments efficiently while remaining accessible to diverse patient populations.
+ 
+The 
+HALO
+ platform is proposed as an 
+automated
+ conversational appointment management system that hospitals can integrate directly into their existing websites. 
+The system will enable patients to book, reschedule, or cancel appointments and obtain basic hospital information through natural conversations conducted via web-based voice or text interaction, or through a dedicated hospital-provided phone number that connects directly to the HALO AI agent
+. 
+All interaction modes, including web-based and telephony-based access, will operate through a single artificial intelligence core
+, ensuring consistent system behavior regardless of the communication method selected by the patient.
+ 
+HALO
+ will support bilingual interaction 
+such as
+ English and Urdu to accommodate Pakistan’s linguistic diversity and reduce communication barriers for patients with varying levels of digital literacy. The platform will maintain structured databases containing doctoral profiles, departmental information, consultation schedules, and hospital operational policies, allowing accurate real-time appointment handling.
+ 
+Hospital managers will be provided with dedicated dashboards to monitor daily appointments, update doctor availability, and record
+ 
+walk-in appointments that occur outside the automated booking flow. An administrative control layer will manage hospital registrations, subscription plans
+, and system
+ configuration. 
+HALO
+ will operate as a multi-tenant software-as-a-service platform, enabling multiple hospitals to use the system while maintaining isolated data environments. Through automation and continuous availability, the platform aims to modernize appointment management processes and improve healthcare accessibility across Pakistan.
+ 
+The system is designed with cost-aware implementation choices to ensure feasibility for academic evaluation while demonstrating real-world applicability in healthcare environments. Furthermore, the modular architecture of HALO allows future enhancements such as mobile applications, expanded language support, and integration with hospital management systems without disrupting the core appointment workflow.
+Problem Statement
+Pakistani
+ hospitals face significant operational challenges in managing patient appointments due to continued reliance on manual, telephone-based
+ or form-based
+ scheduling systems. Appointment requests are typically handled by reception staff during working hours
+ only
+, leading to call congestion, unanswered inquiries, and extended waiting times when multiple patients attempt to book appointments simultaneously. These inefficiencies reduce patient satisfaction and delay access to healthcare services.
+ 
+Receptionists often balance in-person responsibilities alongside telephone scheduling, increasing the likelihood of missed calls, incomplete information exchange, and data entry errors. The absence of automated scheduling tools results in frequent problems such as double-bookings and miscommunication regarding doctor availability, particularly when schedule changes occur unexpectedly.
+ 
+Most hospitals lack after-hours appointment booking facilities, forcing patients to delay care or make unnecessary physical visits for scheduling purposes. Additionally, manual systems do not provide automated reminders, contributing to high appointment no-show rates that disrupt physician schedules and waste hospital resources. The use of fragmented record-keeping methods, including paper registers and disconnected spreadsheets, prevents accurate real-time visibility into appointment availability.
+ 
+Language diversity further complicates appointment management when communication occurs exclusively in English or Urdu, limiting effective access for certain patient groups. Collectively, these challenges increase administrative costs, reduce operational efficiency, and hinder optimal utilization of healthcare resources. An automated, bilingual, and continuously available appointment management system is required to address these limitations and improve healthcare service delivery in Pakistan.
+Problem Solution
+/Objectives
+ 
+of the
+ Proposed System
+The
+ 
+HALO
+ platform is designed to address the
+ 
+limitations of manual appointment management by introducing an 
+agentic
+ conversational system that automates routine scheduling tasks while supporting hospital-specific operational workflows. Each participating hospital will be provided with a dedicated interface integrated into its existing website, enabling deployment without extensive technical modifications.
+HALO will employ conversational artificial intelligence to guide patients through appointment booking processes, including doctor selection by specialty or name, real-time availability checking, slot recommendation, and booking confirmation. 
+The system will support voice-based interaction using speech recognition and synthesis, text-based interaction through a chatbot interface, and telephony-based voice interaction through a hospital-provided phone number connected directly to the HALO AI agent
+, with bilingual support.
+ 
+Automated validation mechanisms will ensure that appointment slots are allocated accurately based on up-to-date doctor schedules, preventing double-bookings and scheduling conflicts. Confirmation and reminder notifications will be issued through supported communication channels to reduce missed appointments. Routine appointment handling will be fully automated, while hospital staff will retain the ability to record in-person walk-in appointments through management dashboards when required.
+ 
+Hospital managers will access role-based dashboards providing visibility into daily schedules, appointment status, and doctor availability.
+ 
+A centralized administrative module will manage hospital onboarding, verification,
+ and
+ subscription plans, ensuring consistent system governance.
+ 
+HALO will function as a multi-tenant software-as-a-service platform, allowing multiple hospitals to operate independently while sharing core infrastructure. By automating repetitive administrative processes and extending appointment services beyond conventional working hours, the system will improve operational efficiency, reduce administrative workload, and enhance patient access to healthcare services.
+Objectives
+The primary objectives of the HALO platform are as follows:
+(Automation):
+ Minimize manual telephone workload for receptionists by automating routine inquiries and booking tasks.
+(Accessibility):
+ Ensure 24/7 service availability, allowing patients to book appointments regardless of hospital working hours.
+(Accuracy):
+ Eliminate double-booking and scheduling errors through real-time database synchronization and automated slot validation.
+(Inclusivity):
+ Bridge the communication gap by providing robust bilingual support (English and Urdu) across both voice and text channels
+(Operational Efficiency):
+ Streamline workflows with a centralized dashboard that unifies online bookings and physical walk-in data.
+(Scalability):
+ Deploy a multi-tenant architecture that enables rapid onboarding of new hospitals with standard web integrations.
+(Engagement):
+ Reduce appointment "no-shows" via automated, multi-channel reminders (Email,
+ In-App
+).
+(Cost Optimization):
+ Reduce administrative overhead, allowing hospitals to reallocate human resources to critical care areas.
+(Patient Experience):
+ Enhance patient satisfaction through natural conversational interactions
+, 
+eliminating complex form-filling and navigation barriers.
+(Reliability):
+ Ensure deterministic, auditable scheduling behavior independent of AI outputs.
+Related System Analysis
+Based on the top-rated and popular related systems operating in digital healthcare appointment management globally and regionally, the following table highlights their weaknesses and the corresponding proposed solutions implemented within 
+HALO
+.
+Table 
+1
+   
+Related System Analysis with 
+HALO
+Application Name
+Weakness
+Proposed Project Solution
+Doctolib
+https://www.doctolib.com/
+• No conversational voice-based AI for natural appointment booking. 
+• Limited language localization for non-European patient populations.
+• HALO will provide voice-enabled conversational artificial intelligence for appointment handling 
+(Module 
+5
+).
+ 
+• The system will support bilingual interaction in English and Urdu to improve accessibility 
+(Module 
+5
+).
+Zocdoc
+https://www.zocdoc.com/
+• Marketplace-centric architecture restricts hospital ownership of appointment workflows. 
+• Limited flexibility in customizing scheduling logic per hospital.
+• HALO will deliver hospital-owned appointment systems with independent branding and control 
+(Module 
+3
+)
+. 
+• The platform will allow configurable scheduling rules per hospital through a dedicated scheduling engine 
+(Module 
+ 4
+).
+Marham.pk
+https://www.marham.pk/
+• Appointment handling depends on human call-center agents. 
+• No dedicated AI instance tailored to individual hospital operations.
+• HALO will deploy autonomous voice and text AI agents operating without staff involvement 
+(Module 
+2
+).
+ 
+• The system will provide per-hospital AI instances with customized knowledge and doctor data 
+(Module 
+3
+)
+.
+Oladoc
+https://www.oladoc.com/
+• Appointment capacity is constrained during peak hours due to semi-manual workflows. 
+• Limited automated follow-up and reminder mechanisms.
+• HALO will support fully automated end-to-end appointment scheduling without human intervention 
+(Module 
+5
+).
+ 
+• The platform will deliver automated confirmations and reminder notifications to reduce missed appointments 
+(Module 
+9
+).
+Vision Statement
+For
+ hospitals, clinics, and healthcare administrative teams across Pakistan 
+who
+ need an efficient and reliable way to manage patient appointments and routine communication, 
+the
+ 
+Hospital AI Liaison & Operations (HALO) 
+platform is a software-as-a-service, artificial intelligence assisted appointment management system 
+that
+ enables automated booking, rescheduling, cancellations, reminders, and bilingual patient interaction through web-based conversational interfaces
+ and telephony-based as well
+. 
+Unlike
+ traditional manual call handling, static appointment forms, or third-party marketplace platforms, 
+our product
+ provides hospitals with a dedicated, white-label, conversational appointment solution that reduces administrative workload, improves patient accessibility, minimizes scheduling conflicts, and supports continuous appointment services in a scalable and cost-aware manner suitable for the Pakistani healthcare environment.
+Scope
+The scope of the HALO project covers the design and development of a web-based, artificial intelligence
+ 
+assisted appointment scheduling platform for hospitals operating in Pakistan
+. 
+The system enables
+ hospitals to register, undergo administrative verification, and create a dedicated instance to efficiently manage appointments. It provides a bilingual interface in English and Urdu and operates continuously, including outside regular working hours. 
+Hospital 
+M
+anagers
+ can configure hospital departments and doctor profiles, set consultation schedules and operational rules, access dashboards to monitor appointments, and manually add walk-in patients. 
+Patients
+ can access hospital-specific links embedded on hospital websites, interact with a conversational agent via text or voice through a web-based interface, 
+or 
+initiate interaction by dialing a hospital-provided phone number that connects directly to the HALO AI agent, and book, reschedule, or cancel non-emergency appointments based on real-time doctor availability.
+ 
+Platform 
+A
+dmins 
+manage hospital approvals, system configurations, and platform governance. The system also includes features such as an
+ automated
+ appointment scheduling engine to prevent double bookings,
+ 
+ notifications and reminders via email and simulated messaging channels, and a multi-tenant architecture ensuring logical data isolation for each hospital.
+ 
+HALO
+ 
+will not
+ perform medical diagnosis, emergency handling, or clinical decision-making, and integration with external hospital management systems is excluded in the current scope
+.
+Modules
+The HALO system is structured into well-defined functional modules, each responsible for a specific aspect of the platform’s operation.
+Module 1: 
+User Profiling & 
+Access Control
+ (Admin & Hospital Manager)
+This module establishes secure authentication, role-based authorization, session management, and audit logging mechanisms to protect platform access for administrative users.
+Create and maintain user profiles containing essential identity and contact information. 
+Register hospital managers securely using verified email addresses.
+Log in and log out securely with encrypted password handling.
+Enforce role-based access control to restrict system features based on assigned user roles.
+Associate each user’s profile with a predefined role such as Hospital Manager or Administrator.
+Update limited profile attributes such as name, contact details, and notification preferences.
+Module 2: 
+Hospital
+ Tenant
+ Onboardin
+g
+ (Hospital Manager)
+This module handles hospital registration, verification, and configuration required before operational use.
+Register a hospital by providing basic organizational and contact information.
+Categorize hospitals by facility type, such as general hospitals or specialty clinics.
+Upload hospital specific documents and license.
+Submit hospital registrations for administrative approval prior to activation.
+Check the status of submitted application via application ID.
+Manage core hospital profile information 
+upon 
+post-activation.
+Generate a unique hospital identifier to ensure logical data isolation within the multi-tenant architecture.
+Module 
+3
+: 
+Platform Administration
+ (Admin)
+This module provides centralized control and oversight across the platform.
+Review and approve hospital registrations.
+Reject invalid or incomplete hospital applications.
+Deactivate or suspend hospital access.
+Configure system-wide parameters across the platform.
+View summarized platform-level statistics and oversight data
+.
+Module 
+4
+: 
+Clinical Resources
+ (Hospital Manager)
+This module manages all doctor-related information required for appointment scheduling.
+Create and maintain doctor profiles within the hospital system.
+Configure consultation fees and appointment durations per doctor.
+Define doctor’s working schedules, break, and leave periods.
+Configure appointment slot intervals for each doctor.
+Modify or deactivate existing doctor profiles as needed.
+Configure email and alert templates.
+Module 
+5
+: 
+AI-Driven Appointments 
+(
+Patient & AI agent
+)
+This module provides an AI-powered conversational 
+agent
+ for patients to interact with the appointment system, enabling booking, rescheduling, and cancellation through natural language dialogue while managing underlying scheduling logic to ensure data consistency and conflict prevention
+.
+Interact with the appointment system through a web-based conversational interface supporting both text and real-time voice communication
+.
+Initiate appointment-related interactions through a hospital-provided phone number via telephony infrastructure.
+Communicate with the conversational agent in English or Urdu, including common code-mixed expressions
+ to book/reschedule/cancel/query 
+appointment
+.
+Interpret patient inputs using an AI-based NLU pipeline comprising intent classification and named entity recognition, with a Finite State Machine (FSM) managing dialogue flow to ensure valid conversation progression and prevent unsupported or ambiguous interactions.
+View available appointment slots grouped by date and time in a structured format
+.
+Collect required booking information progressively, prompting patients only for missing fields such as name, contact number, email, age, and visit reason
+.
+Generate a unique appointment reference identifier upon successful booking for use in future interactions.
+Trigger automated notifications to patients and hospital staff upon booking, rescheduling, or cancellation via supported channels such as SMS and email.
+Module 
+6
+: 
+Operations
+ Console (Hospital Manager)
+This module provides operational control interfaces for hospital managers, including basic analytics and reporting capabilities.
+View daily appointment schedules through a consolidated dashboard.
+Manually enter and register walk-in patient appointments.
+Synchronize manual and automated bookings in real time.
+Configure basic operational settings for the hospital instance.
+View appointment volume statistics and basic analytics
+.
+Module 
+7
+: 
+Search & Filter
+ 
+This module provides structured search and filtering capabilities across hospitals, doctors, departments, and appointments to enhance data accessibility and operational efficiency.
+Search for doctors by name, specialty, or department via the conversational agent.
+Search for appointments by reference ID, date, doctor name, patient name, or status.
+Filter results by time slots, departments, and availability status.
+Apply combined filters for refined and targeted result sets.
+Reflect real-time updates in search results based on live data changes.
+Integrate search and filter functionality across all operational dashboards
+.
+Module 
+8
+: 
+Report & Analytics
+This module provides data-driven insights into system usage and hospital operations by analyzing appointment activity, doctor utilization, and peak-hour traffic trends.
+Generate appointment volume reports displaying total, completed, and cancelled counts for selected time periods.
+Analyze doctor utilization based on booking frequency and availability patterns.
+Identify peak-hour traffic trends across patient appointments.
+View summarized operational dashboards tailored for hospital managers and administrators.
+Display real-time KPIs for hospital managers, including today's appointments, online bookings, walk-in bookings, and active doctors.
+Display real-time KPIs for administrators, including total hospitals, active hospitals, total appointments, and total platform users.
+View platform-wide statistics and aggregated usage data for administrative oversight.
+Export analytical reports in PDF or CSV format for academic and operational 
+use.
+Module 
+9
+: Notifications & Reminders
+ 
+This module manages appointment-related communications using email and in-app notifications, keeping implementation simple and cost-effective for academic evaluation.
+Generate in-app appointment confirmation for patients immediately upon successful booking.
+Send email confirmations containing appointment details and unique reference numbers to patients and hospital managers.
+Deliver reminder alerts to patients via email 24 hours prior to scheduled appointments.
+Log notification delivery status for transparency and record-keeping purposes.
+Notify hospital managers via in-app alerts upon appointment booking, cancellation, or rescheduling events
+.
+Module 
+10
+: 
+Billing & Subscription
+This module demonstrates SaaS subscription logi
+c
+ for hospitals using HALO services
+.
+Select from
+ subscription tiers
+ (
+Basic
+ / 
+Standard
+ / 
+Premium
+) 
+for hospital access to HALO services.
+Simulate subscription activation and expiry scenarios for demonstration purposes.
+Manually manage hospital subscription plans, including assigning new plans, extending existing plans, and suspending active plans.
+System Limitations/Constraints
+The HALO platform is designed to automate administrative appointment management processes; however, the system operates under certain limitations and constraints that define its functional boundaries.
+The
+ artificial intelligence agent will not perform medical symptom analysis, disease diagnosis, or clinical decision-making, as the system is limited strictly to administrative appointment scheduling tasks.
+The
+ system will not handle medical emergencies, urgent care requests, or critical patient situations that require immediate medical intervention or emergency response coordination.
+The
+ system will support English and Urdu languages exclusively during the initial phase and will not accommodate additional regional or international languages.
+Appointment categorization and specialist selection are based on patient-provided information; the system cannot validate medical necessity or assess the clinical appropriateness of requested appointments.
+The
+ platform will not include native mobile applications for Android or iOS devices and will be accessible through web browsers on desktop and mobile devices.
+Data Gathering Approach
+The data gathering methodology for the HALO project will employ a 
+mixed-methods approach
+ to ensure a comprehensive understanding of hospital appointment management workflows and patient interaction requirements within the Pakistani healthcare context.
+ 
+Primary Data Collection
+:
+Structured interviews
+ will be conducted with hospital administrators, department managers, and receptionist staff in major cities to explore appointment handling procedures, communication bottlenecks, and automation needs. 
+Questionnaires
+ will be distributed to patients to capture their experiences, preferred communication channels, language preferences, accessibility challenges, and expectations from digital systems. 
+Observational studies
+ will document telephone call patterns, patient-staff interactions, booking procedures, and manual handling times. 
+Existing hospital data,
+ including appointment records, call logs, and scheduling information, will be analyzed to identify appointment volumes, cancellations, peak demand periods, and scheduling conflicts.
+Secondary Data Collection
+:
+A 
+literature review
+ of academic publications, industry reports, and case studies will provide insights into healthcare appointment systems, conversational AI, and digital health transformations. 
+Focus group
+ 
+discussions
+ with diverse patient demographics will explore varying needs and accessibility requirements. 
+Consultations
+ 
+with
+ healthcare IT 
+experts
+, AI 
+specialists
+, and UX 
+designers
+ will provide technical guidance and interface design principles. 
+Hospital operational data
+, including doctor availability, department schedules, consultation durations, and patient flow statistics, will be collected to understand realistic scheduling constraints.
+Data Analysis & Synthesis
+:
+All gathered data will be synthesized using thematic analysis to identify recurring patterns, critical pain points, priority requirements, and opportunity areas, ensuring that the HALO system effectively addresses operational challenges and meets user needs across diverse hospital settings in Pakistan.
+Project Contribution
+The HALO platform moves beyond standard digitization to provide a
+n
+ 
+AI-assisted, deterministic appointment 
+system. 
+Key technical and conceptual contributions include:
+Unified Multimodal AI:
+ Introduces a synchronized interface where voice and text
+ 
+operate simultaneously, allowing users to switch modes seamlessly without losing context.
+Localized Bilingual NLU:
+ Implements a specialized Natural Language Understanding model optimized for Urdu and English, specifically handling code-switching common in Pakistan.
+Autonomous Slot Negotiation:
+ Unlike static forms, the AI agent actively negotiates alternative times when requested slots are unavailable, mimicking a human receptionist.
+Zero-Friction "White-Label" Injection:
+ utilizing a novel embeddable widget architecture that injects complex AI functionality into legacy hospital websites without backend restructuring.
+Hybrid Real-Time Synchronization:
+ Bridges physical and digital queues by instantly updating availability when walk-ins are logged, preventing conflicts common in disconnected systems.
+Contribution Impact:
+ These innovations lower the technical barrier for hospitals and democratize access for patients with low literacy, transforming passive booking forms into an active, intelligent service.
+Relevance to Course Modules
+This project applies core concepts from the following academic modules:
+Artificial Intelligence & NLP:
+ Implemented LLMs, Speech-to-Text, and Text-to-Speech pipelines for the conversational voice agent.
+Software Architecture:
+ Applied 
+Multi-Tenant Architecture
+ to ensure data isolation between hospitals within a shared SaaS infrastructure.
+Web Engineering:
+ Used 
+Next.js/Node.js
+ for full-stack development of the admin dashboards and embeddable widgets.
+Database Systems:
+ Designed complex relational schemas to manage dynamic schedules and ensure ACID compliance for booking transactions.
+Human-Computer Interaction (HCI):
+ Designed 
+user
+-friendly and easy to access
+ interface
+s
+ to maximize accessibility for non-technical users.
+Information Security:
+ Integrated 
+Role-Based Access Control (RBAC)
+ to secure sensitive administrative and patient data.
+Operating Systems & System Programming:
+ 
+Applied process management concepts through multi-threaded Node.js architecture handling concurrent patient conversations using event loop and worker threads.
+Professional Ethics & Legal Compliance:
+ 
+Adhered to healthcare data privacy regulations designing minimal data collection policies storing only essential patient contact information.
+Software
+ 
+Quality
+ 
+Assurance (SQA):
+ 
+Considered validation rules, error handling, and controlled state transitions (FSM-based dialogue) to ensure predictable and testable system behavior.
+Software Engineering (SE):
+ 
+Applied modular system design, requirement decomposition (FRs), and phased development using clearly defined functional modules aligned with sprint-based planning.
+Data Structures & Algorithms:
+ 
+Used efficient data structures for appointment slot management, conflict detection, and fast retrieval of doctor availability information.
+Tools and Technologies
+Below are
+ all the hardware/software tools and technologies with version number which will be used in implementation 
+of
+ our
+ project
+. 
+Table 
+2
+: 
+Tools and Technologies for 
+HALO
+Tools
+ &
+Technologies
+Tools
+Version
+Rationale
+Visual Studio Code
+2015
+IDE
+Microsoft Word
+365
+Documentation and report writing
+Microsoft Project
+2016
+Gantt Chart and Work Breakdown Structure
+Figma
+Latest
+Interface design and prototyping
+Canva
+V3.0
+Mockup creation and visual design
+Postman
+ 
+10.
+2
+API testing and development
+Docker Desktop
+24.
+1
+Containerization and deployment
+Git
+2.
+4
+Version control system
+GitHub
+-
+Repository hosting and collaboration
+Technology
+Version
+Rationale
+Next.js
+14.
+6
+frontend + backend API routes
+Tailwind CSS
+3.
+3
+Styling and responsive design
+TypeScript
+5.
+2
+Type-safe JavaScript development
+HTML
+V5
+Markup language for web interfaces
+CSS
+V3
+Styling and layout design
+Node.js
+20.
+2
+ LTS
+Backend server development
+Express.js
+4.
+3
+RESTful API development
+FastAPI
+0.104
+AI service API development
+Python
+3.11
+AI model integration and processing
+PostgreSQL
+7.8
+SQL document storage
+Vicuna
+13B-v1.5
+S
+trong multilingual conversational understanding
+Web RTC
+Latest
+Voice input
+/output
+ processing
+Ollama
+Latest
+Multilingual model
+Redis
+Latest
+Session caching
+JWT
+Latest
+Stateless authentication
+SSL
+Latest
+Encryption protocol
+TLS
+Latest
+Data encryption protoco
+l
+LangChain
+0.1.
+4
+Conversational AI framework
+Whisper AI
+Large-v3
+Urdu language speech recognition
+Project Stakeholders
+ and Roles
+Below are the project stakeholders and their roles
+ for our project
+.
+Table 
+3
+ 
+Project Stakeholders for 
+HALO
+Project Sponsor
+COMSATS University
+ Islamabad
+, Islamabad
+ Campus
+Stakeholder
+s
+  
+Below are the stakeholders of our project
+.
+Ihtisham Ul 
+Islam (
+SP23-BSE-016)
+Shahid Nabi
+        
+  (
+SP23-BSE-042)
+Project Supervisor Name:
+ Dr. Tehseen Riaz Abbasi
+Final Year Project Committee: Evaluation of project
+Module based 
+Work Division
+This table presents the finalized distribution of project modules and responsibilities among team members, clearly outlining individual roles and ownership of system components in alignment with the updated HALO system architecture.
+Table 
+4
+ 
+Team Member Work Division for 
+HALO
+Student Name
+Student Registration Number
+Responsibility/ Module
+ / 
+Feature
+Ihtisham Ul Islam
+SP23-BSE-016
+Roles:
+Requirement Engineer, UI/UX Designer,
+ 
+AI Engineer, Tester
+Modules:
+● 
+Module 2:
+ Hospital
+ Tenant
+ Onboarding
+ 
+(FE-1 – FE-6)
+● 
+Module 
+3
+:
+ 
+Platform Administration
+ (
+FE-1 – FE-
+7
+)
+● 
+Module 
+5
+:
+ 
+AI-Driven Appointments
+ (FE-1 – FE-
+13
+)
+● 
+Module 
+7
+:
+ 
+Search & Filter
+ (FE-1 – FE-6)
+   
+● 
+Module 
+8
+:
+ 
+Report & Analytics
+ (FE-1 – FE-
+8
+)
+Shahid Nabi
+SP23-BSE-042
+Roles:
+Full Stack Developer, QA Engineer, System Analyst
+, 
+DevOps Engineer
+Modules:
+   ● 
+Module 1:
+ User Profiling & Access Control (FE-1 – FE-8)
+● Module 
+4
+: 
+Clinical Resources
+ (FE-1 – FE-6)
+● Module 
+7
+: 
+Operations
+ 
+Console
+ 
+(FE-1 – FE-6)
+● Module 
+9
+: Notifications & Reminders
+ 
+(FE-1 – FE-
+5
+)
+● Module 
+10
+: Billing & Subscription
+ 
+(FE-1 – FE-
+4
+)
+WBS and 
+Gantt 
+C
+hart
+The 
+Work Breakdown Structure (WBS)
+ decomposes the HALO project into manageable tasks and sub-tasks, providing a clear overview of development activities, responsibilities, and deliverables across the project lifecycle.
+Table 
+5
+ – WBS for 
+development of HALO
+ Agentic AI Platform
+ID 
+ 
+Task 
+Duration
+Resources
+1
+Analysis 
+8 d
+Ihtisham ul Islam; Shahid Nabi
+2
+ 
+Requirement Gathering & Meetings
+4 d
+Ihtisham ul Islam; Shahid Nabi
+3
+ 
+Stakeholder Communication & Data Collection
+2 d
+Ihtisham ul Islam; Shahid Nabi
+4
+ 
+Existing System Study & Problem Analysis
+2 d
+Ihtisham ul Islam
+5
+ 
+Analysis Finalization
+1 d
+Ihtisham ul Islam; Shahid Nabi
+6
+Design 
+21 d
+Ihtisham ul Islam; Shahid Nabi
+7
+ 
+Database Design (ERD & Schema)
+5 d
+Shahid Nabi
+8
+ 
+System Architecture & Module Design
+6 d
+Ihtisham ul Islam
+9
+ 
+UI/UX Design (Dashboards & Agent Screens)
+3 d
+Shahid Nabi
+10
+ 
+Design Documentation & Specifications
+7 d
+Ihtisham ul Islam
+11
+ 
+Design Finalization
+1 d
+Ihtisham ul Islam; Shahid Nabi
+12
+Development 
+22 d
+Ihtisham ul Islam; Shahid Nabi
+13
+ 
+Develop System Module 
+11 d
+Ihtisham ul Islam; Shahid Nabi
+14
+ 
+AI Agent Knowledge Base Integration
+7 d
+Ihtisham ul Islam
+15
+ 
+Perform Initial Testing 
+3 d
+Shahid Nabi
+16
+ 
+Development Finished 
+1 d
+Ihtisham ul Islam; Shahid Nabi
+17
+Testing 
+17 d
+Ihtisham ul Islam; Shahid Nabi
+18
+ 
+Perform System Testing 
+8 d
+Shahid Nabi
+19
+ 
+Document Issues Found 
+6 d
+Ihtisham ul Islam
+20
+ 
+Bug Fixing and Retesting 
+3 d
+Shahid Nabi
+21
+ 
+Testing Finished 
+1 d
+Ihtisham ul Islam; Shahid Nabi
+22
+Implementation 
+15 d
+Ihtisham ul Islam; Shahid Nabi
+23
+ 
+System Deployment (Demo) 
+1 d
+Shahid Nabi
+24
+Configuration & Dummy Hospital Setup
+9 d
+Ihtisham ul Islam
+24
+ 
+Support Plan for 
+System
+ 
+5 d
+Shahid Nabi
+26
+Completion 
+9 d
+Ihtisham ul Islam; Shahid Nabi
+27
+ 
+System Maintenance 
+4 d
+Shahid Nabi
+28
+ 
+Final Evaluation 
+5 d
+Ihtisham ul Islam; Shahid Nabi
+The 
+Gantt Chart
+ presents the project timeline, illustrating task durations, sequencing, and dependencies to ensure effective planning, progress tracking, and timely completion of the HALO system.
+Figure
+ 
+A
+ – 
+Gantt Chart
+ of HALO
+ agentic AI platform
+Mockups
+Figure 
+1
+:  Hospital Website
+ Landing Page
+Description
+: The screen shows the 
+hospital where our HALO agent is configured
+.
+Figure
+ 
+2: HALO
+ agent link
+Description
+: The screen 
+provides a link to our HALO platform 
+for
+ 
+patients
+Figure
+ 3
+: HALO
+ voice
+ and chat agent
+ (Patient view)
+Description
+: The screen shows the 
+voice-based
+ and chat-based
+ agent of HALO platform which talks to patients
+Figure
+ 
+4
+: Hospital
+ Manager Authentication 
+Description
+: The screen shows 
+the successful account configuration 
+of
+ our HALO platform
+Figure
+ 
+5
+: Hospital
+ Manager Dashboard
+Description
+: The screen shows the 
+hospital 
+manager’s
+ view of all appointments and can also add walk in patients
+Figure
+ 
+6
+: Admin
+ 
+Dashboard
+ (The owner of HALO)
+Description
+: The screen shows the 
+admin view of all the registered hospitals to our SaaS platform
+References
+International Journal of Healthcare Information Systems and Informatics. "AI-Driven Healthcare Appointment Systems: A Systematic Review," vol. 16, no. 3, pp. 45-67, 2024.
+Khan, A., and Rahman, S. "Digital Transformation in Pakistani Healthcare: Challenges and Opportunities." Journal of Medical Systems, vol. 47, no. 8, pp. 112-128, 2023.
+World Health Organization. "Digital Health Implementation Framework for Healthcare Facilities." Internet: 
+https://www.who.int/digital-health
+, December 2023 [December 2024].
+Ahmed, M., Hussain, T., and Malik, F. "Conversational AI in Healthcare: Applications and Future Directions," in Proc. International Conference on Artificial Intelligence in Medicine, 2024, pp. 234-248.
+wq
+Google Cloud. "Healthcare and Life Sciences Solutions." Internet: 
+https://cloud.google.com/solutions/healthcare-life-sciences
+, 2024 [December 2024].
+OpenAI. "GPT-4 Technical Report." Internet: 
+https://openai.com/research/gpt-4
+, March 2023 [December 2024].
+Twilio. "Healthcare Communication APIs Documentation." Internet: 
+https://www.twilio.com/docs/sms
+, 2024 [December 2024].
+Pakistan Medical Commission. "Telemedicine Guidelines and Regulations." Internet: 
+https://www.pmc.gov.pk
+, August 2023 [December 2024].
+Plagiarism
+ Report
+Below is the plagiarism report of our scope document.
+Figure 
+7
+: Plagiarism report of HALO
