@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 207 33% 95%;
+    --foreground: 210 38% 17%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 38% 17%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 38% 17%;
+
+    --primary: 193 88% 34%;
+    --primary-foreground: 0 0% 100%;
+
+    --primary-dark: 195 87% 26%;
+
+    --secondary: 160 100% 39%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 25% 91%;
+    --muted-foreground: 209 20% 43%;
+
+    --accent: 207 33% 95%;
+    --accent-foreground: 210 38% 17%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 212 33% 89%;
+    --input: 212 33% 89%;
+    --ring: 193 88% 34%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 193 88% 34%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 193 88% 34%;
+    --sidebar-accent: 0 0% 100%;
+    --sidebar-accent-foreground: 193 88% 34%;
+    --sidebar-border: 193 70% 40%;
+    --sidebar-ring: 0 0% 100%;
+    --sidebar-muted: 0 0% 100%;
+
+    --neutral: 210 18% 88%;
+
+    /* Status backgrounds */
+    --status-success-bg: 152 81% 96%;
+    --status-warning-bg: 48 100% 96%;
+    --status-danger-bg: 0 100% 97%;
+    --status-info-bg: 214 100% 97%;
+
+    /* Shadows */
+    --shadow-card: 0 1px 4px rgba(10,126,164,0.08);
+    --shadow-card-hover: 0 4px 16px rgba(10,126,164,0.14);
+
+    /* KPI card backgrounds */
+    --kpi-teal-bg: 197 100% 97%;
+    --kpi-green-bg: 138 76% 97%;
+    --kpi-amber-bg: 48 100% 96%;
+    --kpi-blue-bg: 220 100% 97%;
+  }
+
+  .dark {
+    --background: 215 35% 10%;
+    --foreground: 210 25% 91%;
+
+    --card: 215 30% 14%;
+    --card-foreground: 210 25% 91%;
+
+    --popover: 215 30% 14%;
+    --popover-foreground: 210 25% 91%;
+
+    --primary: 193 88% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --primary-dark: 195 87% 30%;
+
+    --secondary: 160 100% 39%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 215 22% 20%;
+    --muted-foreground: 209 18% 58%;
+
+    --accent: 215 22% 18%;
+    --accent-foreground: 210 25% 88%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 215 22% 22%;
+    --input: 215 22% 22%;
+    --ring: 193 88% 40%;
+
+    /* Sidebar keeps blue color in dark mode */
+    --sidebar-background: 215 40% 12%;
+    --sidebar-foreground: 210 25% 91%;
+    --sidebar-primary: 193 88% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 193 70% 35%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 215 25% 20%;
+    --sidebar-ring: 193 88% 40%;
+
+    --neutral: 215 20% 25%;
+
+    /* Status backgrounds dark */
+    --status-success-bg: 152 40% 12%;
+    --status-warning-bg: 38 60% 12%;
+    --status-danger-bg: 0 50% 12%;
+    --status-info-bg: 214 55% 12%;
+
+    /* Shadows */
+    --shadow-card: 0 1px 4px rgba(0,0,0,0.3);
+    --shadow-card-hover: 0 4px 16px rgba(0,0,0,0.4);
+
+    /* KPI dark */
+    --kpi-teal-bg: 197 40% 12%;
+    --kpi-green-bg: 138 40% 10%;
+    --kpi-amber-bg: 38 50% 12%;
+    --kpi-blue-bg: 220 45% 12%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    transition: background-color 0.3s, color 0.3s;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-out forwards;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.25s ease-out forwards;
+  }
+  .animate-pulse-ring {
+    animation: pulseRing 2s ease-out infinite;
+  }
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+  .animate-bar-fill {
+    animation: barFill 0.6s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulseRing {
+  0% { box-shadow: 0 0 0 0 rgba(10,126,164,0.4); }
+  70% { box-shadow: 0 0 0 12px rgba(10,126,164,0); }
+  100% { box-shadow: 0 0 0 0 rgba(10,126,164,0); }
+}
+@keyframes scaleIn {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+@keyframes barFill {
+  from { width: 0; }
+  to { width: var(--bar-width, 100%); }
+}
+
+/* ── Responsive helpers ─────────────────────────────────────── */
+@media (max-width: 640px) {
+  .hide-mobile { display: none !important; }
+}
+
+/* ── Dashboard card dark mode fixes ────────────────────────── */
+.dark .bg-white { background-color: hsl(var(--card)) !important; }
+.dark table thead tr { border-color: hsl(var(--border)); }
+.dark table tbody tr { border-color: hsl(var(--border)); }
+
+/* ── Sidebar dark mode ──────────────────────────────────────── */
+.dark [class*="bg-sidebar"] {
+  background-color: hsl(var(--sidebar-background));
+}
