@@ -7,7 +7,6 @@ Welcome to the HALO Project. The codebase has been decoupled into distinct front
 - `/Frontend`: Contains the Vite + React frontend application.
 - `/Backend`: Contains the Node.js + Express backend API services.
 - `/Docs`: Contains all markdown documentation, implementation plans, architecture guides, and diagrams.
-- `/infra`: Contains the `docker-compose.yml` for local database spinning (PostgreSQL & Redis).
 
 ## Local Development
 
@@ -26,7 +25,7 @@ cd Backend
 npm install
 npm run dev
 ```
-*(Make sure to copy `Backend/.env` properly and have your database running via `docker compose up -d` in the `/infra` folder)*.
+*(Make sure to copy `Backend/.env` properly with your Supabase credentials to connect to the database)*.
 
 ## Deployment Guide
 

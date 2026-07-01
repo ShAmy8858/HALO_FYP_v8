@@ -27,3 +27,6 @@ apps/**/.env.*
 *.njsproj
 *.sln
 *.sw?
+
+# Documentation
+Docs/
